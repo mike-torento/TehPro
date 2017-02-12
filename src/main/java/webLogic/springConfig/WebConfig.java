@@ -15,13 +15,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     // mapping to view?
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/webapp/**").addResourceLocations("/webapp/");
     }
 
     @Bean
     public InternalResourceViewResolver jspViewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
-        bean.setPrefix("/resources/");
+        bean.setPrefix("/webapp/");
         bean.setSuffix(".html");
         return bean;
     }
