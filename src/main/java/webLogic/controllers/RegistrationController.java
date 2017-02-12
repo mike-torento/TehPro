@@ -4,6 +4,7 @@ package webLogic.controllers;
 import dao.UserDAO;
 import model.User;
 import webLogic.Json2Object.ActionConstant;
+import webLogic.Json2Object.response.ResponseAuthorization;
 import webLogic.Json2Object.response.ResponseUser;
 
 import org.springframework.http.MediaType;
