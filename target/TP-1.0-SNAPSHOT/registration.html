@@ -10,18 +10,18 @@
         <script src="js/libs/bootstrap.js"></script>
   <title>Игра "Менеджмент"</title>
 </head>
-<body style="background-color:#fdfdfd; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+<body style="background-color:#fdfdfd; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;">
   <div id="logo-wrapper">
     <h1>"Менеджмент"</h1>
     <img id="index-logo"src="img\logo_managemet.jpg" alt="Игра менеджмент"/>
   </div>
-  <div id="auth-wrapper">
+  <div id="auth-wrapper1">
 
   <form id="auth-form"class="form-inline">
   <div class="form-group">
     <input id="login-input" type="text" class="form-control" id="exampleInputName2" placeholder="Введите логин">
   </div>
-  <button id="auth-button" type="submit" class="btn btn btn-success">Войти</button>
+  <button id="auth-button" type="submit" class="btn btn btn-success">Регистрация</button>
 </form>
   </div>
 
@@ -32,19 +32,17 @@
 
 </div>
 
-<div id="login-undef-alert" class="alert alert-danger hidden" role="alert">
-  <p><i class="glyphicon glyphicon-warning-sign" ></i><strong> Такого пользователя не существует.</strong></p>
-  <p>Пожалуйста, попробуйте снова.</p>
+<div id="login-already-exist-alert" class="alert alert-danger hidden" role="alert">
+  <p><i class="glyphicon glyphicon-warning-sign" ></i><strong> Такого пользователя уже зарегистрирован.</strong></p>
+  <p>Пожалуйста, введите другой логин.</p>
 </div>
 
 <div id="login-success-alert" class="alert alert-success hidden" role="alert">
-  <p><i class="glyphicon glyphicon-ok" ></i><strong> Вход выполнен успешно!</strong></p>
+  <p><i class="glyphicon glyphicon-ok" ></i><strong> Регистрация выполнена успешно!</strong></p>
   <p>Сейчас вы будете перенаправлены в систему.</p>
 
 </div>
 
-
-
-<script src="js/authorization.js" charset="utf-8"></script>
+<script src="js/registration.js" charset="utf-8"></script>
 </body>
 </html>

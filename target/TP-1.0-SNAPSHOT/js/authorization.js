@@ -7,26 +7,28 @@ $(document).ready(function(){
     if(!isValidLogin(login)){
       $loginInput.val("");
       $("#login-invalid-alert").removeClass("hidden");
-      $("#login-already-exist-alert").addClass("hidden");
+      $("#login-undef-alert").addClass("hidden");
+      $("#login-success-alert").addClass("hidden");
     }
     else{
       var status = false;
-      //тут аякс запрос на регистрацию
+      //тут аякс запрос на проверку логина
       //статус и данные достать из респонза
       var data = {};
-      data.login=;
-      data.avatar_id=2;
+      data.login=login;
+      data.avatar_id=1;
+      // $.post("url",data, function(dataResp){
+      //     window.location="rooms.html"
+      // });
       if(status){
         //редирект на страницу комнат
         $("#login-success-alert").removeClass("hidden");
-        $("#login-already-exist-alert").addClass("hidden");
+        $("#login-undef-alert").addClass("hidden");
         $("#login-invalid-alert").addClass("hidden");
-        setTimeout(function() {
-            alert("REDIRECT!");
-      }, 2000);
+        window.location="rooms.html";
       }
       else{
-        $("#login-already-exist-alert").removeClass("hidden");
+        $("#login-undef-alert").removeClass("hidden");
         $("#login-success-alert").addClass("hidden");
         $("#login-invalid-alert").addClass("hidden");
       }
