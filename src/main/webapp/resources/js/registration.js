@@ -14,7 +14,7 @@ $(document).ready(function(){
       //тут аякс запрос на регистрацию
       //статус и данные достать из респонза
       var data = {};
-      data.login=;
+      data.login=a; // вернуть назад как было!!
       data.avatar_id=2;
       if(status){
         //редирект на страницу комнат

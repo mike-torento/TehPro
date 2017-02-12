@@ -5,7 +5,8 @@ body {
     height: 100%;
     background-color: #fdfdfd;
     min-width: 1280px;
-    min-height: 1024px, font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    min-height: 1024px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     overflow-x: hidden;
     overflow-y: hidden;
 }

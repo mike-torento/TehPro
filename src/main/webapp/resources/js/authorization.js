@@ -27,7 +27,7 @@ $(document).ready(function(){
           $("#login-undef-alert").addClass("hidden");
           $("#login-invalid-alert").addClass("hidden");
           setTimeout(function(){
-            window.location="rooms.html";
+            window.location="../rooms.html";
           }, 1000);
 
         }

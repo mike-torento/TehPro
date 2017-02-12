@@ -1,8 +1,5 @@
 package webLogic.Json2Object;
 
-/**
- * Created by PiuPiu on 12.02.2017.
- */
 public class ActionConstant {
 
     public static final String STATUS_SUCCESS = "SUCCESS";
