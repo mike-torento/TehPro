@@ -19,6 +19,7 @@ import java.sql.SQLException;
 @Controller
 public class RegistrationController {
 
+
     @RequestMapping(value = "/registration",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     ResponseUser registration(@RequestBody User reqUser){
@@ -26,7 +27,7 @@ public class RegistrationController {
         try {
             if (UserDAO.getUser(reqUser.getLogin()) == null) {
                 UserDAO.addUser(reqUser);
-                return new ResponseUser(reqUser,reqUser.getHashCode(),ActionConstant.STATUS_SUCCESS);
+                return new ResponseUser(reqUser,reqUser.hashCode(),ActionConstant.STATUS_SUCCESS);
             }
             else return new ResponseUser(reqUser, ActionConstant.STATUS_ERROR,"Такой пользователь уже зарегистрован.");
 

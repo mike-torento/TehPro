@@ -9,6 +9,8 @@ public class Player {
   private int numberOfUniversalFactories;
   private int numberOfReadyStandartFactories;
   private int numberOfReadyUniversalFactories;
+  private boolean Bankrupt;
+ 
 
   
   //только для создания нового игрока, состояния по дефолту
@@ -19,6 +21,7 @@ public class Player {
         numberOfESM = 2;
         numberOfStandartFactories = 2;
         numberOfReadyStandartFactories = 2;
+        Bankrupt = false;
     }
     
     
@@ -89,6 +92,15 @@ public class Player {
     public void setNumberOfReadyUniversalFactories(int numberOfReadyUniversalFactories) {
         this.numberOfReadyUniversalFactories = numberOfReadyUniversalFactories;
     }
+
+    public boolean isBankrupt() {
+        return Bankrupt;
+    }
+
+    public void setBankrupt(boolean Bankrupt) {
+        this.Bankrupt = Bankrupt;
+    }
+
     
     
   

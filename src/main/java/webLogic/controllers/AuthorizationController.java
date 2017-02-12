@@ -22,7 +22,7 @@ public class AuthorizationController {
 
         try {
             User respUser = UserDAO.getUser(reqUser.getLogin());
-            if (respUser != null) return new ResponseUser(respUser,respUser.getHashCode(),ActionConstant.STATUS_SUCCESS);
+            if (respUser != null) return new ResponseUser(respUser,respUser.hashCode(),ActionConstant.STATUS_SUCCESS);
             else return new ResponseUser(reqUser,ActionConstant.STATUS_ERROR,"Пользователь не найден.");
         } catch (SQLException e) {
             return new ResponseUser(reqUser,ActionConstant.STATUS_ERROR,"DB error");
