@@ -8,7 +8,7 @@ import java.util.List;
 public class GameSession {
 
     private Long sessionID;
-    List<User> userList;
+    List<User> userList = new ArrayList<>();
     BankController bankController;
     private int numberOfPlayers;
     private int numberOfSteps;
@@ -19,19 +19,12 @@ public class GameSession {
 
 //использовать только при создании
     public GameSession(User headUser, int numberOfPlayers, int numberOfSteps, int timeOfSteps) {
-        try {
-            userList = new ArrayList<>();
             userList.add(headUser);
-            this.sessionID = dao.SessionDAO.createNewSession(headUser.getLogin(), numberOfPlayers, numberOfSteps, timeOfSteps);
+            this.sessionID = dao.SessionDAO.createNewSession(numberOfPlayers, numberOfSteps, timeOfSteps);
             this.numberOfPlayers = numberOfPlayers;
             this.numberOfSteps = numberOfSteps;
             this.timeOfSteps = timeOfSteps;
             this.state = 0; //не начата
-
-        } catch (SQLException e) {
-            System.out.println("Невозможно создать игровую сессию");
-        }
-
     }
 
     public GameSession() {
@@ -76,6 +69,23 @@ public class GameSession {
     public void setState(int state) {
         this.state = state;
     }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    public BankController getBankController() {
+        return bankController;
+    }
+
+    public void setBankController(BankController bankController) {
+        this.bankController = bankController;
+    }
+    
 
     public void addNewGamer(User newUser) {
         if (userList.size() < numberOfPlayers) {

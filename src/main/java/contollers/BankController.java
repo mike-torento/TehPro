@@ -44,7 +44,7 @@ public class BankController {
 
     public void setCurrentLevel() {
         int oldLevel = bank.getCurrentlevel();
-        int newLevel;
+        int newLevel = 3;
         Double[][] lvl = new Double[5][5];
         lvl[0][0] = 0.33333;
         lvl[0][1] = 0.66666;
@@ -87,7 +87,19 @@ public class BankController {
             }
 
         }
+        if (newLevel != bank.getCurrentlevel()) {
+            bank.setCurrentlevel(newLevel);
+        }
 
+    }
+
+
+    public void writeOffMonthlyOutgoings(){
+        for (int i = 0; i < playersList.size(); i++) {
+            playersList.get(i).setMoney(i);
+            
+        }
+    
     }
 
 }
