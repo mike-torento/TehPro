@@ -16,10 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class RegistrationController {
 
-    @RequestMapping(value = "/")
-    public String getStartPage(){
-        return "redirect:/resources/registration.html";
-    }
 
     @RequestMapping(value = "/registration",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody

@@ -19,7 +19,7 @@ public class test {
     @RequestMapping(value = "/")
     public String lal(){
 
-        return "redirect:/resources/registration.html";
+        return "redirect:/resources/index.html";
     }
 
 
@@ -28,10 +28,5 @@ public class test {
         return new ModelAndView("/resources/authentification.html");
     }
 
-    @RequestMapping(value = "/t",method = RequestMethod.GET)
-    public String sayHello(ModelMap model) {
-        model.addAttribute("greeting", "Hello World from Spring 4 MVC");
-        return "test";
-    }
 
 }
