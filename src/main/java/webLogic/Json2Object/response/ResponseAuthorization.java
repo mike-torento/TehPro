@@ -14,15 +14,11 @@ public class ResponseAuthorization {
     public ResponseAuthorization() {
     }
 
-    public ResponseAuthorization(String status) {
-        this.status = status;
-    }
-
-    public ResponseAuthorization(String status, String login, int avatar_id, String note) {
+    public ResponseAuthorization(String status, String login, int avatar_id) {
         this.status = status;
         this.login = login;
         this.avatar_id = avatar_id;
-        this.note = note;
+
     }
 
     public ResponseAuthorization(String status, String note) {
@@ -30,11 +26,6 @@ public class ResponseAuthorization {
         this.note = note;
     }
 
-    public ResponseAuthorization(String status, String login, int avatar_id) {
-        this.status = status;
-        this.login = login;
-        this.avatar_id = avatar_id;
-    }
 
     public String getStatus() {
         return status;
