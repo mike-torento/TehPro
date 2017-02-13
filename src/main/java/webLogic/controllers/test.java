@@ -23,10 +23,6 @@ public class test {
     }
 
 
-    @RequestMapping(value = "/auth")
-    public  ModelAndView testtt(){
-        return new ModelAndView("/resources/authentification.html");
-    }
 
 
 }

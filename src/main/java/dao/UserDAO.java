@@ -23,7 +23,7 @@ public class UserDAO {
         return connection;
     }
 
-    public static void addUser(User newUser) throws SQLException {
+    public static void addUser(User newUser) {
         Connection dbConnection = null;
         Statement statement = null;
         String insertUser = "INSERT INTO users(login,avatarid) VALUES ('"
@@ -50,7 +50,7 @@ public class UserDAO {
 
     }
 
-    public static User getUser(String login) throws SQLException {
+    public static User getUser(String login) {
         Connection dbConnection = null;
         Statement statement = null;
         User user = new User();
@@ -79,7 +79,7 @@ public class UserDAO {
                 System.out.println("Не закрыто подключение к БД ");
             }
         }
-        return user;
+        return null;
     }
 
     //TO DO написать даод ля статистики
