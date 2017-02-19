@@ -280,7 +280,11 @@ public class BankController {
 
     //взять ссуду
     public void getLoan(User user){
-        
+        for (Player player : playersList) {
+            if(player.getUser().getLogin().equals(user.getLogin())){
+                player.setLoan(player.getNumberOfReadyStandartFactories()* 5000 + player.getNumberOfReadyUniversalFactories()* 10000);
+            }
+        }
     }
     
     //выплатить ежемесячный проент по ссуде

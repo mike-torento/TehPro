@@ -87,7 +87,7 @@ function initRoomCreationForm() {
         action_data1.room_name = $('#RoomName').val();
         action_data1.players_count = players;
         action_data1.round_time = time;
-        action_data1.rounds_count = rounds;
+        action_data1.round_count = rounds;
 
         var d = {
             login: JSON.parse(localStorage.getItem("user")).login,
