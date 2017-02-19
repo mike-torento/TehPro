@@ -37,11 +37,6 @@ $(document).ready(function () {
                         $("#login-success-alert").removeClass("hidden");
                         $("#login-already-exist-alert").addClass("hidden");
                         $("#login-invalid-alert").addClass("hidden");
-                        var user_data = {
-                            login: data.login,
-                            avatarID : data.avatar_id
-                        };
-                        localStorage.setItem("user", JSON.stringify(user_data));
                         setTimeout(function () {
                             window.location = "/TP-dao/resources/rooms.html";
                         }, 2000);

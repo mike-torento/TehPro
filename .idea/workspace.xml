@@ -4,7 +4,6 @@
     <list default="true" id="5861e4b1-3399-4420-9a85-1215391a51f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/registration.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/registration.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/rooms.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/rooms.js" />
     </list>
     <list id="777a200e-3af9-4d30-bf4b-53ab9898115b" name="Failed commit: Default" comment="Пиздец" />
     <ignored path="TP.iws" />
@@ -135,8 +134,8 @@
       <file leaf-file-name="registration.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/registration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="43" column="74" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
+            <state relative-caret-position="350">
+              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -949,7 +948,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1487521950300</updated>
-      <workItem from="1487521956578" duration="10677000" />
+      <workItem from="1487521956578" duration="10895000" />
     </task>
     <task id="LOCAL-00001" summary="Пиздец">
       <created>1487531787869</created>
@@ -972,11 +971,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487532533849</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Пиздец3">
+      <created>1487533094733</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1487533094733</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10677000" />
+    <option name="totallyTimeSpent" value="10895000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1020,7 +1026,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Пиздец" />
     <MESSAGE value="Пиздец2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Пиздец2" />
+    <MESSAGE value="Пиздец3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Пиздец3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1162,8 +1169,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/registration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="43" column="74" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
+        <state relative-caret-position="350">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
