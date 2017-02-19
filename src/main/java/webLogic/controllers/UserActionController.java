@@ -31,7 +31,7 @@ public class UserActionController {
         if (!reqGameRoom.getAction().equalsIgnoreCase(ActionConstant.USER_ACTION_CREATE_ROOM) || user == null)
             return new ResponseGameRoom(ActionConstant.STATUS_ERROR, reqGameRoom.getAction(), null, null, null);
         RoomSetting rs = reqGameRoom.getAction_data();
-        GameSession gs = new GameSession(user, rs.getPlayers_count(), rs.getRound_count(), rs.getRound_time());
+        GameSession gs = new GameSession(user, rs.getRoom_name() , rs.getPlayers_count(), rs.getRound_count(), rs.getRound_time());
         RoomsStorage.getInstance().addRoom(gs);
         List<GameSession> action_data = new ArrayList<>();
         action_data.add(gs);

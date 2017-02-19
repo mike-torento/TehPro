@@ -25,24 +25,24 @@ public class SessionDAO {
     }
 
     //имя лог файла и состояния игры не храним в бд, так дублирование id сессии
-    public static Long createNewSession(int numberOfPlayers, int numberOfSteps, int timeOfSteps){
+    public static Long createNewSession(String name, int numberOfPlayers, int numberOfSteps, int timeOfSteps){
         Connection dbConnection = null;
         Statement statement = null;
-        String insertNewSession = "INSERT INTO sessions(statesession, numberOfPlayers, numberOfSteps, timeOfSteps) VALUES ("
+        String insertNewSession = "INSERT INTO sessions(name, statesession, numberOfPlayers, numberOfSteps, timeOfSteps) VALUES ('"
+                + name + "',"
                 + "'AVAILABLE',"
                 + numberOfPlayers + ","
                 + numberOfSteps + ","
                 + timeOfSteps
-                + ")";
+                + ") RETURNING sessionid";
         
         Long sesID = null;
-        String selectNewSessionID = "SELECT currval('sessions_sessionid_seq')";
         try {
             dbConnection = getConnection();
             statement = dbConnection.createStatement();
-            statement.executeUpdate(insertNewSession);
             
-            ResultSet rs = statement.executeQuery(selectNewSessionID);
+            
+            ResultSet rs = statement.executeQuery(insertNewSession);
             
             while(rs.next()){
                 sesID = rs.getLong("sessionid");             
@@ -106,6 +106,7 @@ public class SessionDAO {
             while (rs.next()) {
                 GameSession game = new GameSession();
                 game.setSessionID(rs.getLong("sessionid"));
+                game.setName(rs.getString("name"));
                 game.setState(rs.getString("statesession"));
                 game.setNumberOfPlayers(rs.getInt("numberofplayers"));
                 game.setNumberOfSteps(rs.getInt("numberofsteps"));
@@ -135,7 +136,7 @@ public class SessionDAO {
         Connection dbConnection = null;
         Statement statement = null;
         List<Long> gameSessionIDs = new ArrayList<>();
-        String selectSessions = "Select sessionid from users_sessions where login="+userLogin;
+        String selectSessions = "Select sessionid from users_sessions where login='" +userLogin+ "'";
         
         try {
             dbConnection = getConnection();

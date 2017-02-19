@@ -157,7 +157,7 @@ public class BankController {
             bank.setMaxPriceForEGP(PC[bank.getCurrentlevel() - 1][3].intValue());
         }
     }
-    
+
     //переработаьь ЕСМ в ЕГП 
     public boolean recycleESM(User user, int numberOfESM, String TypeOfFactory) {
         for (Player player : playersList) {
@@ -195,24 +195,62 @@ public class BankController {
 
         }
     }
-    
+
     //подать заявку (цену и количество) для продажи ЕГП
-    public void setPriceAndNumberOfEGP(User user, int numberOfEGP, int priceForEGP){
+    public void setPriceAndNumberOfEGP(User user, int numberOfEGP, int priceForEGP) {
         for (Player player : playersList) {
-            if(player.getUser().getLogin().equals(user.getLogin())){
+            if (player.getUser().getLogin().equals(user.getLogin())) {
                 player.setSellNumberOfEGP(numberOfEGP);
                 player.setSellPriceOfEGP(priceForEGP);
             }
-        } 
+        }
+    }
+
+    public int findMaxPriceForESM(){
+        int maxPrice = 0;
+        for (Player player : playersList) {
+            if (player.getTheRequiredPriceOfESM() > maxPrice) {
+                maxPrice = player.getTheRequiredPriceOfESM();
+            }
+        }
+        return  maxPrice;
+    }
+    
+    public int findMinPriceForEGP(){
+       int minPrice = Integer.MAX_VALUE;
+        for (Player player : playersList) {
+            if (player.getSellPriceOfEGP() < minPrice) {
+                minPrice = player.getSellPriceOfEGP();
+            }
+        }
+        return  minPrice; 
     }
     
     //банк обработает запросы на продажу ЕСМ
-    public void processRequestsForSaleESM(){
-        int maxPrice = playersList.get(0).getTheRequiredPriceOfESM();
+    public void processRequestsForSaleESM() {
         for (Player player : playersList) {
-            
+            if(player.getTheRequiredPriceOfESM() == findMaxPriceForESM()){
+                if (bank.getCountESM() > player.getTheRequiredNumberOfESM()) {
+                    bank.setCountESM(bank.getCountEGP()-player.getTheRequiredNumberOfESM());
+                    player.setNumberOfESM(player.getNumberOfESM() + player.getTheRequiredNumberOfESM());
+                    player.setTheRequiredNumberOfESM(0);
+                    player.setTheRequiredPriceOfESM(-1);
+                }
+            }
         }
+        if (bank.getCountESM()>0){
+             for (Player player : playersList) {
+                 if(player.getTheRequiredPriceOfESM() == findMaxPriceForESM()){
+                    player.setNumberOfESM(player.getNumberOfESM() + bank.getCountESM());
+                    bank.setCountESM(0);
+                    player.setTheRequiredNumberOfESM(0);
+                    player.setTheRequiredPriceOfESM(-1);
+                 }
+             }
+        }
+
     }
     
     
+
 }

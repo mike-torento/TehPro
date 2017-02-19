@@ -11,6 +11,7 @@ public class GameSession {
     private Long sessionID;
     List<User> userList = new ArrayList<>();
     BankController bankController;
+    private String name;
     private int numberOfPlayers;
     private int numberOfSteps;
     private int timeOfSteps;
@@ -19,9 +20,10 @@ public class GameSession {
     // state file
 
 //использовать только при создании
-    public GameSession(User headUser, int numberOfPlayers, int numberOfSteps, int timeOfSteps) {
+    public GameSession(User headUser, String name, int numberOfPlayers, int numberOfSteps, int timeOfSteps) {
             userList.add(headUser);
-            this.sessionID = dao.SessionDAO.createNewSession(numberOfPlayers, numberOfSteps, timeOfSteps);
+            this.sessionID = dao.SessionDAO.createNewSession(name, numberOfPlayers, numberOfSteps, timeOfSteps);
+            this.name = name;
             this.numberOfPlayers = numberOfPlayers;
             this.numberOfSteps = numberOfSteps;
             this.timeOfSteps = timeOfSteps;
@@ -86,7 +88,14 @@ public class GameSession {
     public void setBankController(BankController bankController) {
         this.bankController = bankController;
     }
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void addNewGamer(User newUser) {
         if (userList.size() < numberOfPlayers) {
