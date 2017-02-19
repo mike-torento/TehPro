@@ -24,36 +24,35 @@ $(document).ready(function () {
             user_data.login = login; // вернуть назад как было!!
             user_data.avatarID = +avatar_id;
             localStorage.setItem("user", JSON.stringify(user_data));
-            // $.ajax({
-            //     url: '/TP-dao/registration',
-            //     type: 'POST',
-            //     async: false,
-            //     dataType: 'json',
-            //     data: JSON.stringify(user_data),
-            //     contentType: "application/json",
-            //     success: function (data) {
-            //         if (data.status === "SUCCESS") {
-            //             //редирект на страницу комнат
-            //             $("#login-success-alert").removeClass("hidden");
-            //             $("#login-already-exist-alert").addClass("hidden");
-            //             $("#login-invalid-alert").addClass("hidden");
-            //             user_data = {
-            //                 login: data.login,
-            //                 avatar_id : data.avatar_id
-            //             }
-            //             localStorage.user = user_data;
-            //             setTimeout(function () {
-            //                 window.location = "/TP-dao/resources/rooms.html";
-            //             }, 2000);
-            //         } else {
-            //             $("#login-already-exist-alert").removeClass("hidden");
-            //             $("#login-success-alert").addClass("hidden");
-            //             $("#login-invalid-alert").addClass("hidden");
-            //         }
-            //     }
-            // });
+            $.ajax({
+                url: '/TP-dao/registration',
+                type: 'POST',
+                async: false,
+                dataType: 'json',
+                data: JSON.stringify(user_data),
+                contentType: "application/json",
+                success: function (data) {
+                    if (data.status === "SUCCESS") {
+                        //редирект на страницу комнат
+                        $("#login-success-alert").removeClass("hidden");
+                        $("#login-already-exist-alert").addClass("hidden");
+                        $("#login-invalid-alert").addClass("hidden");
+                        user_data = {
+                            login: data.login,
+                            avatar_id : data.avatar_id
+                        }
+                        localStorage.user = user_data;
+                        setTimeout(function () {
+                            window.location = "/TP-dao/resources/rooms.html";
+                        }, 2000);
+                    } else {
+                        $("#login-already-exist-alert").removeClass("hidden");
+                        $("#login-success-alert").addClass("hidden");
+                        $("#login-invalid-alert").addClass("hidden");
+                    }
+                }
+            });
 
-            window.location = "C:/Prjcts/TehPro/src/main/webapp/resources/rooms.html";
 
 
 //            $.post('/TP-dao/registration', JSON.stringify(user_data), function (data) {
