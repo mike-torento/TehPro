@@ -14,11 +14,9 @@ import webLogic.Json2Object.ActionConstant;
 import webLogic.Json2Object.request.RequestGameRoom;
 import webLogic.Json2Object.response.ResponseGameRoom;
 import webLogic.Json2Object.simpleObjects.Join;
-import webLogic.Json2Object.simpleObjects.Room;
 import webLogic.Json2Object.simpleObjects.RoomSetting;
 import webLogic.Json2Object.RoomsStorage;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,15 +32,6 @@ public class UserActionController {
             return new ResponseGameRoom(ActionConstant.STATUS_ERROR, reqGameRoom.getAction(), null, null, null);
         RoomSetting rs = reqGameRoom.getAction_data();
         GameSession gs = new GameSession(user, rs.getPlayers_count(), rs.getRound_count(), rs.getRound_time());
-//        Room room = new Room(
-//                gs.getSessionID(),
-//                rs.getRoom_name(),
-//                ActionConstant.ROOM_STATUS_AVAILABLE,
-//                rs.getPlayers_count(),
-//                rs.getRound_count(),
-//                rs.getRound_time(),
-//                reqGameRoom.getLogin(),
-//                new String[]{user.getLogin()});
         RoomsStorage.getInstance().addRoom(gs);
         List<GameSession> action_data = new ArrayList<>();
         action_data.add(gs);

@@ -3,8 +3,6 @@ package webLogic.Json2Object;
 import dao.SessionDAO;
 import model.GameSession;
 import model.User;
-import webLogic.Json2Object.simpleObjects.Room;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,15 +38,6 @@ public class RoomsStorage {
         roms.add(room);
     }
 
-    //
-//    public List<GameSession> getRoomsToUser(User login) {
-//        List<Room> userRooms = new ArrayList<>();
-//        for (GameSession cur : roms) {
-//            if (cur.getRoom_creator().equalsIgnoreCase(login)) userRooms.add(cur);
-//        }
-//        if (!userRooms.isEmpty()) return userRooms;
-//        else return null;
-//    }
     public GameSession getRoomForID(long ID) {
         for (GameSession cur : roms) {
             if (cur.getSessionID() == ID) return cur;

@@ -2,7 +2,6 @@ package webLogic.Json2Object.response;
 
 
 import model.GameSession;
-import webLogic.Json2Object.simpleObjects.Room;
 
 import java.util.List;
 
