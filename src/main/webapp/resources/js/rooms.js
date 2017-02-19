@@ -105,12 +105,25 @@ function initRoomCreationForm() {
 function loadRooms() {
     //тут загружаем список комнат
 
-    var $roomsItems = $("#available-rooms-items");
-    $roomsItems.empty();
-    for (var i = 0; i < ROOMS.length; i++) {
-        var roomView = convertToRoomView(ROOMS[i]);
-        $roomsItems.append(roomView);
-    }
+    $.ajax({
+        url: '/TP-dao/getrooms',
+        type: 'POST',
+        async: false,
+        dataType: 'json',
+        data: JSON.stringify(localStorage.getItem("user")),
+        contentType: "application/json",
+        success: function (data) {
+            console.log(data);
+            var $roomsItems = $("#available-rooms-items");
+            $roomsItems.empty();
+            for (var i = 0; i < data.rooms.length; i++) {
+                var roomView = convertToRoomView(data.rooms[i]);
+                $roomsItems.append(roomView);
+            }
+        }
+    });
+
+
 
 }
 
@@ -119,10 +132,10 @@ function convertToRoomView(room) {
     var roomBlock = '<div class="room-list-item">' +
         '<h4>' + room.name + '</h4>' +
         '<div class="rooms-param-wrapper">' +
-        '<ul class="room-parameters" room-id="' + room.id + '">' +
-        '<li><i class="glyphicon glyphicon-time"></i>' + room.round_time + ' секунд</li>' +
-        '<li><i class="glyphicon glyphicon-repeat"></i>' + room.rounds_count + ' круга</li>' +
-        '<li><i class="glyphicon glyphicon-user"></i>' + room.players_count + '/4 игроков</li>' +
+        '<ul class="room-parameters" room-id="' + room.sessionID + '">' +
+        '<li><i class="glyphicon glyphicon-time"></i>' + room.timeOfSteps + ' секунд</li>' +
+        '<li><i class="glyphicon glyphicon-repeat"></i>' + room.numberOfSteps + ' круга</li>' +
+        '<li><i class="glyphicon glyphicon-user"></i>' + room.numberOfPlayers + '/4 игроков</li>' +
         '</ul>' +
         '  <button class="join-to-room-bt btn btn btn-success" data-toggle="modal" data-target="#room-connection-modal">Присоединиться</button>' +
         '</div>' +
