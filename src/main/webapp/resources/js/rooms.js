@@ -104,13 +104,13 @@ function initRoomCreationForm() {
 
 function loadRooms() {
     //тут загружаем список комнат
-
+    var user = JSON.stringify(localStorage.getItem("user"));
     $.ajax({
         url: '/TP-dao/getrooms',
         type: 'POST',
         async: false,
         dataType: 'json',
-        data: JSON.stringify(localStorage.getItem("user")),
+        data: localStorage.getItem("user"),
         contentType: "application/json",
         success: function (data) {
             console.log(data);
