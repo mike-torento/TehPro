@@ -39,9 +39,9 @@ $(document).ready(function () {
                         $("#login-invalid-alert").addClass("hidden");
                         user_data = {
                             login: data.login,
-                            avatar_id : data.avatar_id
+                            avatarID : data.avatar_id
                         }
-                        localStorage.user = user_data;
+                        localStorage.setItem("user", JSON.stringify(user_data));
                         setTimeout(function () {
                             window.location = "/TP-dao/resources/rooms.html";
                         }, 2000);
