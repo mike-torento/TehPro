@@ -165,13 +165,13 @@ function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
         var selectedRoom = getRoomById(roomId);
-        var roomParams = '<p> Время хода: ' + selectedRoom.round_time + '</p>' +
-            '<p> Количество ходов: ' + selectedRoom.rounds_count + '</p>' +
-            '<p> Количество игроков: ' + selectedRoom.players_count + '</p>' +
+        var roomParams = '<p> Время хода: ' + selectedRoom.timeOfSteps + '</p>' +
+            '<p> Количество ходов: ' + selectedRoom.numberOfSteps + '</p>' +
+            '<p> Количество игроков: ' + selectedRoom.numberOfPlayers + '</p>' +
             '<h5>Игроки в комнате:</h5>' +
             '<ul>';
-        for (var i = 0; i < selectedRoom.players.length; i++) {
-            roomParams += '<li>' + selectedRoom.players[i] + '</li>';
+        for (var i = 0; i < selectedRoom.userList.length; i++) {
+            roomParams += '<li>' + selectedRoom.userList[i].login + '</li>';
         }
         roomParams += '</ul>';
 
@@ -186,9 +186,19 @@ function initJoinToRoomButtons() {
 }
 
 function getRoomById(id) {
-    for (var i = 0; i < ROOMS.length; i++) {
-        if (ROOMS[i].id == id) return ROOMS[i];
-    }
+    var room;
+    $.ajax({
+        url: '/TP-dao/updateroom',
+        type: 'POST',
+        async: false,
+        dataType: 'json',
+        data: id,
+        contentType: "application/json",
+        success: function (data) {
+            room = data.action_data[0];
+        }
+    });
+    return room;
 }
 function   validatePermissions(){
     if(localStorage.user ===undefined){
