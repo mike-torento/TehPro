@@ -4,6 +4,7 @@
     <list default="true" id="5861e4b1-3399-4420-9a85-1215391a51f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/registration.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/registration.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/rooms.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/rooms.js" />
     </list>
     <list id="777a200e-3af9-4d30-bf4b-53ab9898115b" name="Failed commit: Default" comment="Пиздец" />
     <ignored path="TP.iws" />
@@ -39,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rooms.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rooms.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/rooms.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+            <state relative-caret-position="588">
+              <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
               <folding>
                 <element signature="e#222#259#0" expanded="false" />
                 <element signature="n#!!block;n#initRoomCreationForm#0" expanded="false" />
@@ -131,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="registration.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/registration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+            <state relative-caret-position="299">
+              <caret line="43" column="74" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -948,7 +949,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1487521950300</updated>
-      <workItem from="1487521956578" duration="10116000" />
+      <workItem from="1487521956578" duration="10677000" />
     </task>
     <task id="LOCAL-00001" summary="Пиздец">
       <created>1487531787869</created>
@@ -964,11 +965,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487532124443</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Пиздец2">
+      <created>1487532533849</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1487532533849</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10116000" />
+    <option name="totallyTimeSpent" value="10677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1011,7 +1019,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Пиздец" />
-    <option name="LAST_COMMIT_MESSAGE" value="Пиздец" />
+    <MESSAGE value="Пиздец2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Пиздец2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1135,18 +1144,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/registration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/rooms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+        <state relative-caret-position="588">
+          <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
           <folding>
             <element signature="e#222#259#0" expanded="false" />
             <element signature="n#!!block;n#initRoomCreationForm#0" expanded="false" />
@@ -1156,6 +1157,14 @@
             <element signature="n#!!block;n#validatePermissions#0" expanded="false" />
             <element signature="n#!!block;n#initLeftSidePanelActions#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/registration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="43" column="74" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>

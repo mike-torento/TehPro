@@ -219,7 +219,7 @@ function initLeftSidePanelActions() {
 
 }
 function initUserUIData() {
-    var user = JSON.parse(localStorage.user);
+    var user = JSON.parse(localStorage.getItem("user"));
     $("#profile-button-sb>img").attr("src", "img\\"+user.avatarID+".png");
     $("#profile-button-sb").attr("title", user.login);
 }
