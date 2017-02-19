@@ -83,17 +83,32 @@ function initRoomCreationForm() {
         }
     });
     $('#create-room-btn').click(function() {
-        var room = {};
-        room.name = $('#RoomName').val();
-        room.players = [USER.login];
-        room.players_count = players;
-        room.round_time = time;
-        room.rounds_count = rounds;
-        room.id = ID_COUNTER; //костыль
-        ID_COUNTER++;
+        var action_data1 = {};
+        action_data1.room_name = $('#RoomName').val();
+        action_data1.players_count = players;
+        action_data1.round_time = time;
+        action_data1.rounds_count = rounds;
+
+        var d = {
+            login: JSON.parse(localStorage.getItem("user").login),
+            action: "CREATE_ROOM",
+            action_data: action_data1
+        }
         //console.log(CREATED_ROOM);
         //TODO отправить на сервер
-        ROOMS.push(room); //тут принимать комнату с айди и его писать
+        $.ajax({
+            url: '/TP-dao/createroom',
+            type: 'POST',
+            async: false,
+            dataType: 'json',
+            data: json.stringify(d),
+            contentType: "application/json",
+            success: function (data) {
+                console.log(data);
+                //pokazat
+            }
+        });
+        // ROOMS.push(room); //тут принимать комнату с айди и его писать
         $('#room-creation-modal').hide();
         $('.modal-backdrop').hide();
         loadRooms();
