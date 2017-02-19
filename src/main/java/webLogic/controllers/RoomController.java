@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import webLogic.Json2Object.ActionConstant;
 import webLogic.Json2Object.response.ResponseGameRoom;
 import webLogic.Json2Object.RoomsStorage;
+import webLogic.Json2Object.simpleObjects.Join;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +29,10 @@ public class RoomController {
         return new ResponseGameRoom(ActionConstant.STATUS_SUCCESS, null, null, rooms, unfinished);
     }
 
-    @RequestMapping(value = "/updateroom")
+    @RequestMapping(value = "/updateroom", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public
     @ResponseBody
-    ResponseGameRoom updateroom(long room_id){
+    ResponseGameRoom updateroom(@RequestBody Long room_id){
         for (GameSession cur: RoomsStorage.getInstance().getRoms()){
             if (Long.compare(cur.getSessionID(),room_id) == 1 ) {
                 List<GameSession> action_data = new ArrayList<GameSession>();
