@@ -3,7 +3,6 @@ package webLogic.controllers;
 import dao.UserDAO;
 import model.GameSession;
 import model.User;
-import org.apache.taglibs.standard.tag.common.xml.IfTag;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -11,6 +11,7 @@ public class ActionConstant {
     public static final String ROOM_STATUS_UNFINISHED = "UNFINISHED";
     public static final String ROOM_STATUS_FINISHED = "FINISHED";
     public static final String ROOM_STATUS_AVAILABLE = "AVAILABLE";
+    public static final String ROOM_UPDATE = "UPDATE";
 
     public static final String USER_ACTION_CREATE_ROOM = "CREATE_ROOM";
     public static final String USER_ACTION_JOIN_TO_ROOM = "JOIN_TO_ROOM";

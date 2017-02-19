@@ -10,6 +10,7 @@ import webLogic.Json2Object.ActionConstant;
 import webLogic.Json2Object.response.ResponseGameRoom;
 import webLogic.Json2Object.RoomsStorage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,5 +26,19 @@ public class RoomController {
         List<GameSession> unfinished = RoomsStorage.getInstance().getUnfinishedRoomToUser(user);
 
         return new ResponseGameRoom(ActionConstant.STATUS_SUCCESS, null, null, rooms, unfinished);
+    }
+
+    @RequestMapping(value = "/updateroom")
+    public
+    @ResponseBody
+    ResponseGameRoom updateroom(long room_id){
+        for (GameSession cur: RoomsStorage.getInstance().getRoms()){
+            if (Long.compare(cur.getSessionID(),room_id) == 1 ) {
+                List<GameSession> action_data = new ArrayList<GameSession>();
+                action_data.add(cur);
+                return new ResponseGameRoom(ActionConstant.STATUS_SUCCESS,ActionConstant.ROOM_UPDATE,action_data,null,null);
+            }
+        }
+        return null; // прописать ошибку
     }
 }
