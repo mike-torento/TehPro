@@ -164,24 +164,8 @@ function convertToRoomView(room) {
 function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
-        var selectedRoom = getRoomById(roomId);
-        var roomParams = '<p> Время хода: ' + selectedRoom.timeOfSteps + '</p>' +
-            '<p> Количество ходов: ' + selectedRoom.numberOfSteps + '</p>' +
-            '<p> Количество игроков: ' + selectedRoom.numberOfPlayers + '</p>' +
-            '<h5>Игроки в комнате:</h5>' +
-            '<ul>';
-        for (var i = 0; i < selectedRoom.userList.length; i++) {
-            roomParams += '<li>' + selectedRoom.userList[i].login + '</li>';
-        }
-        roomParams += '</ul>';
+       getRoomById(roomId);
 
-        $('#room-name-modal').html(selectedRoom.name + " ");
-
-        $('#room-parameters').html(roomParams);
-        $('#connect-btn').click(function() {
-            //тут отправляем запрос пользователя на подключение к игре
-            console.log(selectedRoom);
-        });
     });
 }
 
@@ -195,7 +179,24 @@ function getRoomById(id) {
         data: id,
         contentType: "application/json",
         success: function (data) {
-            room = data.action_data[0];
+            selectedRoom = data.action_data[0];
+            var roomParams = '<p> Время хода: ' + selectedRoom.timeOfSteps + '</p>' +
+                '<p> Количество ходов: ' + selectedRoom.numberOfSteps + '</p>' +
+                '<p> Количество игроков: ' + selectedRoom.numberOfPlayers + '</p>' +
+                '<h5>Игроки в комнате:</h5>' +
+                '<ul>';
+            for (var i = 0; i < selectedRoom.userList.length; i++) {
+                roomParams += '<li>' + selectedRoom.userList[i].login + '</li>';
+            }
+            roomParams += '</ul>';
+
+            $('#room-name-modal').html(selectedRoom.name + " ");
+
+            $('#room-parameters').html(roomParams);
+            $('#connect-btn').click(function() {
+                //тут отправляем запрос пользователя на подключение к игре
+                console.log(selectedRoom);
+            });
         }
     });
     return room;
