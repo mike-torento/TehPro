@@ -101,7 +101,7 @@ function initRoomCreationForm() {
             type: 'POST',
             async: false,
             dataType: 'json',
-            data: json.stringify(d),
+            data: JSON.stringify(d),
             contentType: "application/json",
             success: function (data) {
                 console.log(data);
