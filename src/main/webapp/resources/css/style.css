@@ -368,7 +368,9 @@ ul.room-parameters>li {
 .res-btn:hover {
     background-color: #5597d0;
 }
-
+#bank{
+    background-color: rgba(3, 130, 237, 0.48) !important;
+}
 #bank,
 #egp,
 #esm {
@@ -387,15 +389,16 @@ ul.room-parameters>li {
 }
 
 #bank>img {
-    width: 20%;
-    height: 100%;
+    margin-top: 2%;
+    margin-left: 1%;
+    width: 30%;
+    height: 80%;
     float: left;
 }
 
 #bank-parameters {
-    width: 80%;
+    width: 69%;
     height: 100%;
-    background-color: gray;
     float: left;
 }
 

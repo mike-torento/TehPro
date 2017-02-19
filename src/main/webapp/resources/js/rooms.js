@@ -1,9 +1,14 @@
 $(document).ready(function() {
     validatePermissions();
     initLeftSidePanelActions();
+
+
+    initUserUIData();
     initRoomCreationForm();
     loadRooms();
     initJoinToRoomButtons();
+
+
 
 });
 ID_COUNTER = 0;
@@ -212,4 +217,9 @@ function initLeftSidePanelActions() {
         }
     }
 
+}
+function initUserUIData() {
+    var user = JSON.parse(localStorage.user);
+    $("#profile-button-sb>img").attr("src", "img\\"+user.avatarID+".png");
+    $("#profile-button-sb").attr("title", user.login);
 }
