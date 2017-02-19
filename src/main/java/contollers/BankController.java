@@ -206,51 +206,76 @@ public class BankController {
         }
     }
 
-    public int findMaxPriceForESM(){
+    public int findMaxPriceForESM() {
         int maxPrice = 0;
         for (Player player : playersList) {
             if (player.getTheRequiredPriceOfESM() > maxPrice) {
                 maxPrice = player.getTheRequiredPriceOfESM();
             }
         }
-        return  maxPrice;
+        return maxPrice;
     }
-    
-    public int findMinPriceForEGP(){
-       int minPrice = Integer.MAX_VALUE;
+
+    public int findMinPriceForEGP() {
+        int minPrice = Integer.MAX_VALUE - 2;
         for (Player player : playersList) {
             if (player.getSellPriceOfEGP() < minPrice) {
                 minPrice = player.getSellPriceOfEGP();
             }
         }
-        return  minPrice; 
+        return minPrice;
     }
-    
-    //банк обработает запросы на продажу ЕСМ
+
+    //банк обработает запросы на продажу ЕСМ пользователям
     public void processRequestsForSaleESM() {
         for (Player player : playersList) {
-            if(player.getTheRequiredPriceOfESM() == findMaxPriceForESM()){
+            if (player.getTheRequiredPriceOfESM() == findMaxPriceForESM()) {
                 if (bank.getCountESM() > player.getTheRequiredNumberOfESM()) {
-                    bank.setCountESM(bank.getCountEGP()-player.getTheRequiredNumberOfESM());
+                    bank.setCountESM(bank.getCountEGP() - player.getTheRequiredNumberOfESM());
                     player.setNumberOfESM(player.getNumberOfESM() + player.getTheRequiredNumberOfESM());
                     player.setTheRequiredNumberOfESM(0);
                     player.setTheRequiredPriceOfESM(-1);
                 }
             }
         }
-        if (bank.getCountESM()>0){
-             for (Player player : playersList) {
-                 if(player.getTheRequiredPriceOfESM() == findMaxPriceForESM()){
+        if (bank.getCountESM() > 0) {
+            for (Player player : playersList) {
+                if (player.getTheRequiredPriceOfESM() == findMaxPriceForESM()) {
                     player.setNumberOfESM(player.getNumberOfESM() + bank.getCountESM());
                     bank.setCountESM(0);
                     player.setTheRequiredNumberOfESM(0);
                     player.setTheRequiredPriceOfESM(-1);
-                 }
-             }
+                }
+            }
         }
 
     }
     
-    
+    //банк обрабатывает запросы на покупку ЕГП у пользователе
+    public void processRequestForPurchaseEGP() {
+        for (Player player : playersList) {
+            if (player.getSellPriceOfEGP() == findMinPriceForEGP()) {
+                if (bank.getCountEGP() > player.getSellNumberOfEGP()) {
+                    bank.setCountEGP(bank.getCountEGP() - player.getSellNumberOfEGP());
+                    player.setMoney(player.getMoney() + player.getSellNumberOfEGP() * player.getSellPriceOfEGP());
+                    player.setSellNumberOfEGP(0);
+                    player.setSellPriceOfEGP(Integer.MAX_VALUE);
+
+                }
+            }
+        }
+
+        if (bank.getCountEGP() > 0) {
+            for (Player player : playersList) {
+                if(player.getSellPriceOfEGP()== findMinPriceForEGP()){
+                    player.setMoney(player.getMoney() + bank.getCountEGP() * player.getSellPriceOfEGP());
+                    bank.setCountEGP(0);
+                    player.setSellNumberOfEGP(0);
+                    player.setSellPriceOfEGP(Integer.MAX_VALUE);
+                }
+            }
+        }
+
+    }
 
 }
