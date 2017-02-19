@@ -29,7 +29,7 @@ public class SessionDAO {
         Connection dbConnection = null;
         Statement statement = null;
         String insertNewSession = "INSERT INTO sessions(statesession, numberOfPlayers, numberOfSteps, timeOfSteps) VALUES ("
-                + 0 + ","
+                + "'AVAILABLE',"
                 + numberOfPlayers + ","
                 + numberOfSteps + ","
                 + timeOfSteps
@@ -106,7 +106,7 @@ public class SessionDAO {
             while (rs.next()) {
                 GameSession game = new GameSession();
                 game.setSessionID(rs.getLong("sessionid"));
-                game.setState(rs.getInt("statesession"));
+                game.setState(rs.getString("statesession"));
                 game.setNumberOfPlayers(rs.getInt("numberofplayers"));
                 game.setNumberOfSteps(rs.getInt("numberofsteps"));
                 game.setTimeOfSteps(rs.getInt("timeofsteps"));  

@@ -59,7 +59,7 @@ public class RoomsStorage {
     public List<GameSession> getUnfinishedRoomToUser(User user) {
         List<GameSession> unfinished = new ArrayList<GameSession>();
         for (GameSession cur : roms) {
-            if (cur.getState()==1 && cur.getUserList().contains(user))
+           if (cur.getState().equalsIgnoreCase(ActionConstant.ROOM_STATUS_UNFINISHED) && cur.getUserList().contains(user))
                 unfinished.add(cur);
         }
         if (!unfinished.isEmpty())

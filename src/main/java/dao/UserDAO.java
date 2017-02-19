@@ -54,7 +54,7 @@ public class UserDAO {
         Connection dbConnection = null;
         Statement statement = null;
         User user = new User();
-        String selectUser = "Select * from users where login=" + login;
+        String selectUser = "Select * from users where login='" + login+  "'";
         try {
             dbConnection = getConnection();
             statement = dbConnection.createStatement();

@@ -206,8 +206,9 @@ public class BankController {
         } 
     }
     
-    //банк обработает запросы на продажу и покупку
+    //банк обработает запросы на продажу ЕСМ
     public void processRequestsForSaleESM(){
+        int maxPrice = playersList.get(0).getTheRequiredPriceOfESM();
         for (Player player : playersList) {
             
         }

@@ -4,6 +4,7 @@ import contollers.BankController;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import webLogic.Json2Object.ActionConstant;
 
 public class GameSession {
 
@@ -13,7 +14,7 @@ public class GameSession {
     private int numberOfPlayers;
     private int numberOfSteps;
     private int timeOfSteps;
-    private int state; // 0 не начата, 1 начата и длится, 2 завершена но не до конца, 3 полностю завершена 
+    private String state; 
     // log file
     // state file
 
@@ -24,7 +25,7 @@ public class GameSession {
             this.numberOfPlayers = numberOfPlayers;
             this.numberOfSteps = numberOfSteps;
             this.timeOfSteps = timeOfSteps;
-            this.state = 0; //не начата
+            this.state = ActionConstant.ROOM_STATUS_AVAILABLE; //не начата
     }
 
     public GameSession() {
@@ -62,11 +63,11 @@ public class GameSession {
         this.timeOfSteps = timeOfSteps;
     }
 
-    public int getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(String state) {
         this.state = state;
     }
 
@@ -101,7 +102,7 @@ public class GameSession {
     
     public void startGame(){
         bankController = new BankController(userList);
-        state = 1; //игра началась и длится
+        state = ActionConstant.ROOM_STATUS_ACTIVE;
     }
 
 }
