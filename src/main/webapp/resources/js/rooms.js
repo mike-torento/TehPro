@@ -90,7 +90,7 @@ function initRoomCreationForm() {
         action_data1.rounds_count = rounds;
 
         var d = {
-            login: JSON.parse(localStorage.getItem("user").login),
+            login: JSON.parse(localStorage.getItem("user")).login,
             action: "CREATE_ROOM",
             action_data: action_data1
         }
