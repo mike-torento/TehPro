@@ -1,9 +1,17 @@
+
 $(document).ready(function () {
     var $authButton = $('#auth-button');
     $authButton.click(function (e) {
         e.preventDefault();
         var $loginInput = $('#login-input');
         var login = $loginInput.val();
+        var $avatar = $(".avatar-selected");
+        var avatar_id = $avatar.attr("alt");
+        if(avatar_id==undefined){
+            alert("Пожалуйста, выберите аватар");
+            return;
+        }
+
         if (!isValidLogin(login)) {
             $loginInput.val("");
             $("#login-invalid-alert").removeClass("hidden");
@@ -14,8 +22,8 @@ $(document).ready(function () {
             //статус и данные достать из респонза
             var user_data = {};
             user_data.login = login; // вернуть назад как было!!
-            user_data.avatarID = 2;
-
+            user_data.avatarID = +avatar_id;
+            //localStorage.user = user_data;
             $.ajax({
                 url: '/TP-dao/registration',
                 type: 'POST',
@@ -29,6 +37,11 @@ $(document).ready(function () {
                         $("#login-success-alert").removeClass("hidden");
                         $("#login-already-exist-alert").addClass("hidden");
                         $("#login-invalid-alert").addClass("hidden");
+                        user_data = {
+                            login: data.login,
+                            avatar_id : data.avatar_id
+                        }
+                        localStorage.user = user_data;
                         setTimeout(function () {
                             window.location = "/TP-dao/resources/rooms.html";
                         }, 2000);
@@ -59,6 +72,11 @@ $(document).ready(function () {
 
 
         }
+    });
+
+    $('#avatar-wrapper>img').click(function(){
+        $('#avatar-wrapper>img').removeClass("avatar-selected");
+        $(this).addClass("avatar-selected");
     });
 
     function isValidLogin(login) {

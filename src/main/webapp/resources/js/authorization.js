@@ -16,28 +16,36 @@ $(document).ready(function(){
       //статус и данные достать из респонза
       var user_data = {};
       user_data.login=login;
-      user_data.avatar_id=1; //добавить выбор аватара
       // $.post("url",data, function(dataResp){
       //     window.location="rooms.html"
       // });
-      $.post("url",user_data, function(data){
-        if(data.status==="SUCCESS"){
-          //редирект на страницу комнат
-          $("#login-success-alert").removeClass("hidden");
-          $("#login-undef-alert").addClass("hidden");
-          $("#login-invalid-alert").addClass("hidden");
-          setTimeout(function(){
-            window.location="../rooms.html";
-          }, 1000);
 
-        }
-        else{
-          $("#login-undef-alert").removeClass("hidden");
-          $("#login-success-alert").addClass("hidden");
-          $("#login-invalid-alert").addClass("hidden");
+      $.ajax({
+        url: '/TP-dao/authorization',
+        type: 'POST',
+        async: false,
+        dataType: 'json',
+        data: JSON.stringify(user_data),
+        contentType: "application/json",
+        success: function (data) {
+          if(data.status==="SUCCESS"){
+            //редирект на страницу комнат
+            $("#login-success-alert").removeClass("hidden");
+            $("#login-undef-alert").addClass("hidden");
+            $("#login-invalid-alert").addClass("hidden");
+            setTimeout(function(){
+              window.location="/TP-dao/resources/rooms.html";
+            }, 1000);
+
+          }
+          else{
+            $("#login-undef-alert").removeClass("hidden");
+            $("#login-success-alert").addClass("hidden");
+            $("#login-invalid-alert").addClass("hidden");
+          }
         }
       });
-
+      
     }
   });
 

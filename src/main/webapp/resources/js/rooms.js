@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    validatePermissions();
     initLeftSidePanelActions();
     initRoomCreationForm();
     loadRooms();
@@ -156,7 +157,14 @@ function getRoomById(id) {
         if (ROOMS[i].id == id) return ROOMS[i];
     }
 }
-
+function   validatePermissions(){
+    if(localStorage.user ===undefined){
+        $("body").text("Доступ запрещен");
+        setTimeout(function(){
+            window.location="/TP-dao/resources/index.html";
+        }, 3000);
+    }
+}
 function initLeftSidePanelActions() {
     // $( "#left-side-panel" ).hide();
     var isOpenLeftSidePanel = false;
