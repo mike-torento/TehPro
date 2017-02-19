@@ -10,6 +10,10 @@ public class Player {
   private int numberOfReadyStandartFactories;
   private int numberOfReadyUniversalFactories;
   private boolean Bankrupt;
+  
+  private int theRequiredNumberOfESM;
+  private int theRequiredPriceOfESM;
+  
  
 
   
@@ -92,6 +96,23 @@ public class Player {
     public void setNumberOfReadyUniversalFactories(int numberOfReadyUniversalFactories) {
         this.numberOfReadyUniversalFactories = numberOfReadyUniversalFactories;
     }
+
+    public int getTheRequiredNumberOfESM() {
+        return theRequiredNumberOfESM;
+    }
+
+    public void setTheRequiredNumberOfESM(int theRequiredNumberOfESM) {
+        this.theRequiredNumberOfESM = theRequiredNumberOfESM;
+    }
+
+    public int getTheRequiredPriceOfESM() {
+        return theRequiredPriceOfESM;
+    }
+
+    public void setTheRequiredPriceOfESM(int theRequiredPriceOfESM) {
+        this.theRequiredPriceOfESM = theRequiredPriceOfESM;
+    }
+
 
     public boolean isBankrupt() {
         return Bankrupt;

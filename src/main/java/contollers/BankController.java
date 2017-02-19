@@ -132,6 +132,7 @@ public class BankController {
             }
         }
     }
+    
     //проверяем банкротов
     public void checkBankrupts(){
         for (int i = 0; i < playersList.size(); i++) {
@@ -158,6 +159,24 @@ public class BankController {
         }
     }
     
-    
+    //подали заявку на покупку ест (юзер, оличество, стоимость)
+    public void setTheRequiredNumberAndPriceOfEsmForPlayer(User user, int numberOfESM, int priceForESM){
+        for (int i = 0; i < playersList.size(); i++) {
+            if(playersList.get(i).getUser().getLogin() == user.getLogin()){
+                playersList.get(i).setTheRequiredNumberOfESM(numberOfESM);
+                playersList.get(i).setTheRequiredPriceOfESM(priceForESM);
+            }
+            
+        }
+        
+        
+        
+        
+    }
 
+    //обаботали все заявки
+   
+    
+    
+    
 }
