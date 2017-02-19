@@ -2,18 +2,19 @@ package webLogic.Json2Object.simpleObjects;
 
 
 public class Room {
-    private int ID;
-    private String name;
-    private String room_status;
-    private int players_count;
-    private int rounds_count;
-    private int round_time;
-    private String room_creator;
-    private String[] players;
+    private long ID; //sessinID (Long)
+    private String name; // add to GameSession
+    private String room_status; // state
+    private int players_count; // numberOfPlayers
+    private int rounds_count; // numberOfSteps
+    private int round_time; // timeOfSteps
+    private String room_creator; // add to GameSession
+    private String[] players; // userList
 
-    public Room() {}
+    public Room() {
+    }
 
-    public Room(int ID, String name, String room_status, int players_count, int rounds_count, int round_time, String room_creator, String[] players) {
+    public Room(long ID, String name, String room_status, int players_count, int rounds_count, int round_time, String room_creator, String[] players) {
         this.ID = ID;
         this.name = name;
         this.room_status = room_status;
@@ -24,11 +25,11 @@ public class Room {
         this.players = players;
     }
 
-    public int getID() {
+    public long getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(long ID) {
         this.ID = ID;
     }
 

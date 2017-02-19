@@ -8,21 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class test {
+@RequestMapping(value = "/")
+public class RunController {
 
-    @RequestMapping(value = "/r")
-    public ModelAndView testhtml(){
-
-        return new ModelAndView("/resources/registration.html");
-    }
-
-    @RequestMapping(value = "/")
-    public String lal(){
+    public String run() {
 
         return "redirect:/resources/index.html";
     }
-
-
 
 
 }

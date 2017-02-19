@@ -1,6 +1,7 @@
 package webLogic.Json2Object.response;
 
 
+import model.GameSession;
 import webLogic.Json2Object.simpleObjects.Room;
 
 import java.util.List;
@@ -8,13 +9,14 @@ import java.util.List;
 public class ResponseGameRoom {
     private String action_status;
     private String action;
-    private List<Room> action_data;
-    private List<Room> rooms;
-    private List<Room> unfinished_rooms;
+    private List<GameSession> action_data;
+    private List<GameSession> rooms;
+    private List<GameSession> unfinished_rooms;
 
-    public ResponseGameRoom() {}
+    public ResponseGameRoom() {
+    }
 
-    public ResponseGameRoom(String action_status, String action, List<Room> action_data, List<Room> rooms, List<Room> unfinished_rooms) {
+    public ResponseGameRoom(String action_status, String action, List<GameSession> action_data, List<GameSession> rooms, List<GameSession> unfinished_rooms) {
         this.action_status = action_status;
         this.action = action;
         this.action_data = action_data;
@@ -22,11 +24,11 @@ public class ResponseGameRoom {
         this.unfinished_rooms = unfinished_rooms;
     }
 
-    public List<Room> getAction_data() {
+    public List<GameSession> getAction_data() {
         return action_data;
     }
 
-    public void setAction_data(List<Room> action_data) {
+    public void setAction_data(List<GameSession> action_data) {
         this.action_data = action_data;
     }
 
@@ -46,19 +48,19 @@ public class ResponseGameRoom {
         this.action = action;
     }
 
-    public List<Room> getRooms() {
+    public List<GameSession> getRooms() {
         return rooms;
     }
 
-    public void setRooms(List<Room> rooms) {
+    public void setRooms(List<GameSession> rooms) {
         this.rooms = rooms;
     }
 
-    public List<Room> getUnfinished_rooms() {
+    public List<GameSession> getUnfinished_rooms() {
         return unfinished_rooms;
     }
 
-    public void setUnfinished_rooms(List<Room> unfinished_rooms) {
+    public void setUnfinished_rooms(List<GameSession> unfinished_rooms) {
         this.unfinished_rooms = unfinished_rooms;
     }
 }
