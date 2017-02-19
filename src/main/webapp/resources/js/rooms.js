@@ -164,7 +164,7 @@ function convertToRoomView(room) {
 function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
-        var selectedRoom = getRoomById(roomId);
+       getRoomById(roomId);
 
     });
 }
@@ -179,7 +179,7 @@ function getRoomById(id) {
         data: id,
         contentType: "application/json",
         success: function (data) {
-            room = data.action_data[0];
+            selectedRoom = data.action_data[0];
             var roomParams = '<p> Время хода: ' + selectedRoom.timeOfSteps + '</p>' +
                 '<p> Количество ходов: ' + selectedRoom.numberOfSteps + '</p>' +
                 '<p> Количество игроков: ' + selectedRoom.numberOfPlayers + '</p>' +
