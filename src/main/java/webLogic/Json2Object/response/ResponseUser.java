@@ -1,3 +1,4 @@
+/*
 package webLogic.Json2Object.response;
 
 import model.User;
@@ -46,3 +47,4 @@ public class ResponseUser {
         this.note = note;
     }
 }
+*/

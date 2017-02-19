@@ -5,7 +5,7 @@ package webLogic.Json2Object.response;
  */
 public class ResponseAuthorization {
 
-    private String status; //: "SUCCESS", //или "ERROR"
+    private String status; // "SUCCESS" или "ERROR"
     private String login;
     private int avatar_id;
     private String note;  // только в случае ошибки

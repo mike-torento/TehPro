@@ -2,7 +2,7 @@ package webLogic.Json2Object.simpleObjects;
 
 
 public class RoomSetting {
-    private int room_id;
+    private int room_id; // убрать?
     private String room_name;
     private int players_count;
     private int round_count;
@@ -23,7 +23,8 @@ public class RoomSetting {
         this.round_time = round_time;
     }
 
-    public RoomSetting() {}
+    public RoomSetting() {
+    }
 
     public int getRoom_id() {
         return room_id;

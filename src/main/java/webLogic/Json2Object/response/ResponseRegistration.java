@@ -1,8 +1,6 @@
 package webLogic.Json2Object.response;
 
-/**
- * Created by PiuPiu on 13.02.2017.
- */
+
 public class ResponseRegistration {
     private String status; // "SUCCESS" или "ERROR"
     private String note;
