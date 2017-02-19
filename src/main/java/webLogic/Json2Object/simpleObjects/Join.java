@@ -3,7 +3,7 @@ package webLogic.Json2Object.simpleObjects;
 
 public class Join {
     private String login;
-    private int room_id;
+    private long room_id;
 
     public Join() {
     }
@@ -17,7 +17,7 @@ public class Join {
         return login;
     }
 
-    public int getRoom_id() {
+    public long getRoom_id() {
         return room_id;
     }
 

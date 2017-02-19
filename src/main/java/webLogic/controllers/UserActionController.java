@@ -30,7 +30,7 @@ public class UserActionController {
         if (!reqGameRoom.getAction().equalsIgnoreCase(ActionConstant.USER_ACTION_CREATE_ROOM) || user == null)
             return new ResponseGameRoom(ActionConstant.STATUS_ERROR, reqGameRoom.getAction(), null, null, null);
         RoomSetting rs = reqGameRoom.getAction_data();
-        GameSession gs = new GameSession(user, rs.getRoom_name() , rs.getPlayers_count(), rs.getRound_count(), rs.getRound_time());
+        GameSession gs = new GameSession(user, rs.getRoom_name(), rs.getPlayers_count(), rs.getRound_count(), rs.getRound_time());
         RoomsStorage.getInstance().addRoom(gs);
         List<GameSession> action_data = new ArrayList<>();
         action_data.add(gs);
@@ -49,13 +49,20 @@ public class UserActionController {
     ResponseGameRoom joinToRoom(@RequestBody Join reqJoin) { // связать с классами Мишы & доделать
         User user = UserDAO.getUser(reqJoin.getLogin());
         if (user == null) return null;//прописать ошибку
-
-        return new ResponseGameRoom(
-                ActionConstant.STATUS_SUCCESS,
-                ActionConstant.USER_ACTION_JOIN_TO_ROOM,
-                null,
-                RoomsStorage.getInstance().getRoms(),
-                RoomsStorage.getInstance().getUnfinishedRoomToUser(user));
+        List<GameSession> action_data = new ArrayList<>();
+        for (GameSession cur : RoomsStorage.getInstance().getRoms()) {
+            if (Long.compare(cur.getSessionID(), reqJoin.getRoom_id()) == 1) {
+                cur.addNewGamer(user);
+                action_data.add(cur);
+                return new ResponseGameRoom(
+                        ActionConstant.STATUS_SUCCESS,
+                        ActionConstant.USER_ACTION_JOIN_TO_ROOM,
+                        action_data,
+                        null,
+                        null);
+            }
+        }
+        return null; //прописать ошибку
     }
 
     public void getPlayerStats() {
