@@ -23,7 +23,7 @@ $(document).ready(function () {
             var user_data = {};
             user_data.login = login; // вернуть назад как было!!
             user_data.avatarID = +avatar_id;
-            //localStorage.user = user_data;
+            localStorage.setItem("user", JSON.stringify(user_data));
             $.ajax({
                 url: '/TP-dao/registration',
                 type: 'POST',
@@ -52,6 +52,7 @@ $(document).ready(function () {
                     }
                 }
             });
+
 
 
 //            $.post('/TP-dao/registration', JSON.stringify(user_data), function (data) {
