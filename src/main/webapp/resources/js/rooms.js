@@ -168,17 +168,15 @@ function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
         getRoomById(roomId);
-        $("#close-connect-to-room").click(function () {
-            clearInterval(selectedRoomID);
-            console.log("selectedRoomID cleared");
-        });
-       var selectedRoomID= setInterval(getRoomById(roomId), 20000);
+
 
     });
 }
 
 function getRoomById(id) {
     var room;
+
+
     $.ajax({
         url: '/TP-dao/updateroom',
         type: 'POST',
@@ -220,6 +218,40 @@ function getRoomById(id) {
             });
         }
     });
+
+
+    var selectedRoomID= setInterval(function () {
+        $.ajax({
+            url: '/TP-dao/updateroom',
+            type: 'POST',
+            async: false,
+            dataType: 'json',
+            data: id,
+            contentType: "application/json",
+            success: function (data) {
+                selectedRoom = data.action_data[0];
+                var roomParams = '<p> Время хода: ' + selectedRoom.timeOfSteps + '</p>' +
+                    '<p> Количество ходов: ' + selectedRoom.numberOfSteps + '</p>' +
+                    '<p> Количество игроков: ' + selectedRoom.numberOfPlayers + '</p>' +
+                    '<h5>Игроки в комнате:</h5>' +
+                    '<ul>';
+                for (var i = 0; i < selectedRoom.userList.length; i++) {
+                    roomParams += '<li>' + selectedRoom.userList[i].login + '</li>';
+                }
+                roomParams += '</ul>';
+
+                $('#room-name-modal').html(selectedRoom.name + " ");
+
+                $('#room-parameters').html(roomParams);
+            }
+        });
+    }, 10000);
+
+    $("#close-connect-to-room").click(function () {
+        clearInterval(selectedRoomID);
+        console.log("selectedRoomID cleared");
+    });
+
     return room;
 }
 function   validatePermissions(){
