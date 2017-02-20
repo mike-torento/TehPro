@@ -65,11 +65,11 @@ var MAX_ESM_PRICE;
 var MIN_ESM_PRICE;
 
 function drawPlayer(player){
-    var template='<div class="player" id="'+player.user.login+
-            +'<img src="img/'+player.user.avatarID+'.png"><div class="player-info"><h4>'+player.user.login+'</h4>'+
-            +'<div class="player-parameters"> <div class="left-col">  Капитал: $'+player.money+' <br> ЕСМ: '+player.numberOfESM+' <br>  <br> </div>'+
-            +' <div class="right-col">ЕГП: '+player.numberOfEGP+' <br> Фабрики: '+player.numberOfStandartFactories+' <br> Авто фабрики: '+player.numberOfUniversalFactories+' <br> </div>  </div>  </div>';
-    $('#players').append(template);
+    // var template='<div class="player" id="'+player.user.login+
+    //         +'<img src="img//'+player.user.avatarID+'.png"><div class="player-info"><h4>'+player.user.login+'</h4>'+
+    //         +'<div class="player-parameters"> <div class="left-col">  Капитал: $'+player.money+' <br> ЕСМ: '+player.numberOfESM+' <br>  <br> </div>'+
+    //         +' <div class="right-col">ЕГП: '+player.numberOfEGP+' <br> Фабрики: '+player.numberOfStandartFactories+' <br> Авто фабрики: '+player.numberOfUniversalFactories+' <br> </div>  </div>  </div>';
+    // $('#players').append(template);
 
 }
 function initSliders() {
