@@ -168,6 +168,19 @@ function initJoinToRoomButtons() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
         getRoomById(roomId);
         var ROOM_ID=roomId;
+        $("#start-btn").click(function(){
+            $.ajax({
+                url: '/TP-dao/startgame',
+                type: 'POST',
+                async: false,
+                dataType: 'json',
+                data: ROOM_ID,
+                contentType: "application/json",
+                success: function (data) {
+
+                }
+            });
+        });
        var joinRoomID = setInterval(function(){
            getRoomById(ROOM_ID);
        },10000);
@@ -178,6 +191,7 @@ function initJoinToRoomButtons() {
     });
 }
 var ROOM_ID;
+
 function getRoomById(id) {
     var room;
     $.ajax({
