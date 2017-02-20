@@ -200,6 +200,10 @@ function getRoomById(id) {
                     $('#connect-btn').css({"background-color":"grey !important"});
                     $('#connect-btn').text("Вы присоединены к комнате");
                 }
+                if(selectedRoom.userList[0].login===JSON.parse(localStorage.getItem("user")).login){
+                    $("#start-btn").removeClass("hidden");
+                    $("#connect-btn").addClass("hidden")
+                }
             }
             roomParams += '</ul>';
 
