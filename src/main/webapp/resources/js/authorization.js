@@ -29,6 +29,7 @@ $(document).ready(function(){
         contentType: "application/json",
         success: function (data) {
           if(data.status==="SUCCESS"){
+            localStorage.setItem("user", JSON.stringify(user_data));
             //редирект на страницу комнат
             $("#login-success-alert").removeClass("hidden");
             $("#login-undef-alert").addClass("hidden");
