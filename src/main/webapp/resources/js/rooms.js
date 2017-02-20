@@ -167,7 +167,9 @@ function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
 
-       var joinRoomID = setInterval(getRoomById(roomId),10000);
+       var joinRoomID = setInterval(function(){
+           getRoomById(roomId);
+       },10000);
         $("#close-connect-to-room").click(function () {
             clearInterval(joinRoomID);
         });
