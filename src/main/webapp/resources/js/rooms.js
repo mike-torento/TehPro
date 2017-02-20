@@ -166,7 +166,11 @@ function convertToRoomView(room) {
 function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
-        getRoomById(roomId);
+
+       var joinRoomID = setInterval(getRoomById(roomId),10000);
+        $("#close-connect-to-room").click(function () {
+            clearInterval(joinRoomID);
+        });
 
     });
 }
