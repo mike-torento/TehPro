@@ -114,6 +114,7 @@ public class GameSession {
     public void startGame(){
         bankController = new BankController(userList);
         state = ActionConstant.ROOM_STATUS_ACTIVE;
+        dao.SessionDAO.editRoomStatus(getSessionID(), ActionConstant.ROOM_STATUS_ACTIVE);
     }
 
 }

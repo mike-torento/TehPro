@@ -102,6 +102,7 @@ public class SessionDAO {
         try {
             dbConnection = getConnection();
             statement = dbConnection.createStatement();
+            Statement statement1 = dbConnection.createStatement();
             ResultSet rs = statement.executeQuery(selectSessions);
             while (rs.next()) {
                 GameSession game = new GameSession();
@@ -112,7 +113,7 @@ public class SessionDAO {
                 game.setNumberOfSteps(rs.getInt("numberofsteps"));
                 game.setTimeOfSteps(rs.getInt("timeofsteps"));  
                 String selectUsers = "Select * from users_sessions where sessionid =" + game.getSessionID();
-                ResultSet users = statement.executeQuery(selectUsers);
+                ResultSet users = statement1.executeQuery(selectUsers);
                 while (users.next()) {
                     game.addNewGamer(dao.UserDAO.getUser(users.getString("login")));
                 }
@@ -167,5 +168,28 @@ public class SessionDAO {
         return gameSessionIDs;
     } 
     
-    
+    public static void editRoomStatus(Long id, String status){
+        Connection dbConnection = null;
+        Statement statement = null;
+        String editStatus = "Update sessions set statesession='"+ status + "' where sessionid = " + id;
+        try {
+            dbConnection = getConnection();
+            statement = dbConnection.createStatement();
+            statement.executeUpdate(editStatus);  
+
+        } catch (SQLException e) {
+            System.out.println("Нет подключения к БД");
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (dbConnection != null) {
+                    dbConnection.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Не закрыто подключение к БД ");
+            }
+        }
+    }
 }

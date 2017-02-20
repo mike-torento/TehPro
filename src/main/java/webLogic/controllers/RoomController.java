@@ -22,7 +22,12 @@ public class RoomController {
     ResponseGameRoom getRooms(@RequestBody User reqUser) { // проверить как работает
         User user = UserDAO.getUser(reqUser.getLogin());
         if (user==null) return null; // прописать ошибку
-        List<GameSession> rooms = RoomsStorage.getInstance().getRoms();
+
+        List<GameSession> rooms = new ArrayList<GameSession>(); //RoomsStorage.getInstance().getRoms();
+        for (GameSession cur: RoomsStorage.getInstance().getRoms()){
+            if (cur.getState().equalsIgnoreCase(ActionConstant.ROOM_STATUS_AVAILABLE))
+                rooms.add(cur);
+        }
         List<GameSession> unfinished = RoomsStorage.getInstance().getUnfinishedRoomToUser(user);
 
         return new ResponseGameRoom(ActionConstant.STATUS_SUCCESS, null, null, rooms, unfinished);
