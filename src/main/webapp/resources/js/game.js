@@ -15,7 +15,7 @@ $(document).ready(function() {
         data: localStorage.getItem("session_id"),
         contentType: "application/json",
         success: function (data) {
-            var bankController = data.bankController;
+            var bankController = data.action_data[0].bankController;
             var players = bankController.playersList;
             var player;
             for(var i=0;i<players.length;i++){
