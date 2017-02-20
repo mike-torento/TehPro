@@ -111,6 +111,11 @@ public class SessionDAO {
                 game.setNumberOfPlayers(rs.getInt("numberofplayers"));
                 game.setNumberOfSteps(rs.getInt("numberofsteps"));
                 game.setTimeOfSteps(rs.getInt("timeofsteps"));  
+                String selectUsers = "Select * from users_sessions where sessionid =" + game.getSessionID();
+                ResultSet users = statement.executeQuery(selectUsers);
+                while (users.next()) {
+                    game.addNewGamer(dao.UserDAO.getUser(users.getString("login")));
+                }
                 
                 gameSessions.add(game);
 
