@@ -51,7 +51,7 @@ public class UserActionController {
         if (user == null) return null;//прописать ошибку
         List<GameSession> action_data = new ArrayList<>();
         for (GameSession cur : RoomsStorage.getInstance().getRoms()) {
-            if (Long.compare(cur.getSessionID(), reqJoin.getRoom_id()) == 1) {
+            if (Long.compare(cur.getSessionID(), reqJoin.getRoom_id()) == 0) {
                 cur.addNewGamer(user);
                 action_data.add(cur);
                 return new ResponseGameRoom(

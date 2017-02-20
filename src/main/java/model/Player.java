@@ -138,4 +138,13 @@ public class Player {
         this.Bankrupt = Bankrupt;
     }
 
+    public int getLoan() {
+        return loan;
+    }
+
+    public void setLoan(int loan) {
+        this.loan = loan;
+    }
+
+    
 }

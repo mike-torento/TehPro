@@ -278,4 +278,22 @@ public class BankController {
 
     }
 
+    //взять ссуду
+    public void getLoan(User user){
+        for (Player player : playersList) {
+            if(player.getUser().getLogin().equals(user.getLogin())){
+                player.setLoan(player.getNumberOfReadyStandartFactories()* 5000 + player.getNumberOfReadyUniversalFactories()* 10000);
+            }
+        }
+    }
+    
+    //выплатить ежемесячный проент по ссуде
+   public void payInterestOnTheLoan(){
+       for (Player player : playersList) {
+               if(player.getLoan()>0){
+                   player.setMoney(player.getMoney() - (int)Math.round(player.getLoan() * 0.01));
+               }
+       }
+   }
+    
 }
