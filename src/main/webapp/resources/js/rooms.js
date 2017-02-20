@@ -43,10 +43,9 @@ ROOMS = [{
 
 function initRoomCreationForm() {
     var CREATED_ROOM = {};
-    var time;
-    var players;
-    var rounds;
-    var room_id;
+    var time=90;
+    var players=4;
+    var rounds=20;
     $("#time-slider").slider({
         range: false,
         min: 60,
@@ -77,7 +76,7 @@ function initRoomCreationForm() {
         range: false,
         min: 13,
         max: 120,
-        values: [24],
+        values: [20],
         slide: function(event, ui) {
             //  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
             console.log(ui.values[0]);
