@@ -8,12 +8,12 @@ public class RequestGameArea {
     private long room_id;
     private String action;
     private String login;
-    private List<PlayerAction> action_data;
+    private PlayerAction action_data;
 
     public RequestGameArea() {
     }
 
-    public RequestGameArea(long room_id, String action, String login, List<PlayerAction> action_data) {
+    public RequestGameArea(long room_id, String action, String login, PlayerAction action_data) {
         this.room_id = room_id;
         this.action = action;
         this.login = login;
@@ -44,11 +44,11 @@ public class RequestGameArea {
         this.login = login;
     }
 
-    public List<PlayerAction> getAction_data() {
+    public PlayerAction getAction_data() {
         return action_data;
     }
 
-    public void setAction_data(List<PlayerAction> action_data) {
+    public void setAction_data(PlayerAction action_data) {
         this.action_data = action_data;
     }
 }

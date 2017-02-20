@@ -13,9 +13,9 @@ public class ResponseGameArea {
     private String login; // получить из юзера в плеере
     private String player_status;
     private Bank bank; //берется из текущей сессии
-    private BankAction action_response;
-    private Player player_data;
-    private List<Player> players_states;
+    private BankAction action_response; // пока не надо
+    private Player player_data; // по каждому юзеру
+    private List<Player> players_states; // пока не надо
 
     public ResponseGameArea() {
     }

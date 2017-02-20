@@ -17,5 +17,13 @@ import webLogic.Json2Object.simpleObjects.states.ESM;
     }
     */
 public class PlayerStates {
-
+    private int EGP;
+    private int ESM;
+    private int money;
+    private int fabric;
+    private int fabric_works;
+    private int auto_fabric;
+    private int auto_fabric_works;
+    private int builder_fabric;
+    private int upgrade_fabric;
 }
