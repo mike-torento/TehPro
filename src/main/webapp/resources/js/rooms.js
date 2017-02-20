@@ -225,6 +225,10 @@ function getRoomById(id) {
                         $('#room-name-modal').html(selectedRoom.name + " ");
 
                         $('#room-parameters').html(roomParams);
+                        $('#connect-btn').attr('disabled',true);
+                        $('#connect-btn').css({"background-color":"grey !important"});
+                        $('#connect-btn').text("Вы присоединены к комнате");
+
                     }
                 });
 
