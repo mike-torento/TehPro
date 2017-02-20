@@ -204,7 +204,7 @@ function getRoomById(id) {
                     type: 'POST',
                     async: false,
                     dataType: 'json',
-                    data: JSON.stringify({login : JSON.parse({login: JSON.parse(localStorage.getItem("user")).login, room_id:id})}),
+                    data: JSON.stringify({login : JSON.parse(localStorage.getItem("user")).login, room_id:id}),
                     contentType: "application/json",
                     success: function (data) {
                         var roomParams = '<p> Время хода: ' + selectedRoom.timeOfSteps + '</p>' +
