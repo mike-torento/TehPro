@@ -15,7 +15,7 @@ $(document).ready(function(){
       //тут аякс запрос на проверку логина
       //статус и данные достать из респонза
       var user_data = {};
-      // user_data.login=login;
+       user_data.login=login;
       // $.post("url",data, function(dataResp){
       //     window.location="rooms.html"
       // });
