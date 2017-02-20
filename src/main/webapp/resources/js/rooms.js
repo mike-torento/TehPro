@@ -199,6 +199,31 @@ function getRoomById(id) {
             $('#connect-btn').click(function() {
                 //тут отправляем запрос пользователя на подключение к игре
                 console.log(selectedRoom);
+
+                $.ajax({
+                    url: '/TP-dao/jointoroom',
+                    type: 'POST',
+                    async: false,
+                    dataType: 'json',
+                    data: JSON.stringify({login : JSON.parse({login: localStorage.getItem("user").login, room_id:id})}),
+                    contentType: "application/json",
+                    success: function (data) {
+                        var roomParams = '<p> Время хода: ' + selectedRoom.timeOfSteps + '</p>' +
+                            '<p> Количество ходов: ' + selectedRoom.numberOfSteps + '</p>' +
+                            '<p> Количество игроков: ' + selectedRoom.numberOfPlayers + '</p>' +
+                            '<h5>Игроки в комнате:</h5>' +
+                            '<ul>';
+                        for (var i = 0; i < selectedRoom.userList.length; i++) {
+                            roomParams += '<li>' + selectedRoom.userList[i].login + '</li>';
+                        }
+                        roomParams += '</ul>';
+
+                        $('#room-name-modal').html(selectedRoom.name + " ");
+
+                        $('#room-parameters').html(roomParams);
+                    }
+                });
+
             });
         }
     });
