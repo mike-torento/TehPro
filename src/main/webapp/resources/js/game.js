@@ -3,7 +3,15 @@ $(document).ready(function() {
     validatePermissions();
     initSliders();
     timer(10);
+    
+    
 });
+
+var MIN_EGP;
+var MAX_EGP;
+
+var MIN_ESM;
+var MAX_ESM;
 
 function initSliders() {
     $("#egp-count-slider").slider({

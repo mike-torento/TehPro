@@ -1,8 +1,6 @@
 $(document).ready(function() {
     validatePermissions();
     initLeftSidePanelActions();
-
-
     initUserUIData();
     initRoomCreationForm();
     loadRooms();
@@ -227,6 +225,7 @@ function getRoomById(id) {
 
                 }
                 if(selectedRoom.state==="ACTIVE"){ //когда игра началась
+                    localStorage.setItem("session_id", ROOM_ID);
                     window.location="/TP-dao/resources/game.html"
                 }
             }
