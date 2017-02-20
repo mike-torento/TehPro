@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 
 
-    gameLifeCycle(10);
+    gameLifeCycle(120);
 
 
     $.ajax({
