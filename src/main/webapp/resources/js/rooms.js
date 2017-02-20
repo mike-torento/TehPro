@@ -193,6 +193,11 @@ function getRoomById(id) {
                 '<ul>';
             for (var i = 0; i < selectedRoom.userList.length; i++) {
                 roomParams += '<li>' + selectedRoom.userList[i].login + '</li>';
+                if(selectedRoom.userList[i].login===JSON.parse(localStorage.getItem("user")).login){
+                    $('#connect-btn').attr('disabled',true);
+                    $('#connect-btn').css({"background-color":"grey !important"});
+                    $('#connect-btn').text("Вы присоединены к комнате");
+                }
             }
             roomParams += '</ul>';
 

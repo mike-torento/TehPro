@@ -15,7 +15,7 @@ $(document).ready(function(){
       //тут аякс запрос на проверку логина
       //статус и данные достать из респонза
       var user_data = {};
-      user_data.login=login;
+      // user_data.login=login;
       // $.post("url",data, function(dataResp){
       //     window.location="rooms.html"
       // });
@@ -29,6 +29,8 @@ $(document).ready(function(){
         contentType: "application/json",
         success: function (data) {
           if(data.status==="SUCCESS"){
+            user_data.avatarID = data.avatar_id;
+            user_data.login = data.login;
             localStorage.setItem("user", JSON.stringify(user_data));
             //редирект на страницу комнат
             $("#login-success-alert").removeClass("hidden");
