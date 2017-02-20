@@ -167,8 +167,9 @@ function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
         getRoomById(roomId);
+        var ROOM_ID=roomId;
        var joinRoomID = setInterval(function(){
-           getRoomById(roomId);
+           getRoomById(ROOM_ID);
        },10000);
         $("#close-connect-to-room").click(function () {
             clearInterval(joinRoomID);
@@ -176,7 +177,7 @@ function initJoinToRoomButtons() {
 
     });
 }
-
+var ROOM_ID;
 function getRoomById(id) {
     var room;
     $.ajax({
