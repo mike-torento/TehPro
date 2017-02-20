@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import webLogic.Json2Object.ActionConstant;
 import webLogic.Json2Object.response.ResponseGameRoom;
 import webLogic.Json2Object.RoomsStorage;
-import webLogic.Json2Object.simpleObjects.Join;
 
 import java.util.ArrayList;
 import java.util.List;

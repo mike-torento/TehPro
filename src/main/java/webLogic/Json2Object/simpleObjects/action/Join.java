@@ -1,4 +1,4 @@
-package webLogic.Json2Object.simpleObjects;
+package webLogic.Json2Object.simpleObjects.action;
 
 
 public class Join {

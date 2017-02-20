@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import webLogic.Json2Object.ActionConstant;
 import webLogic.Json2Object.request.RequestGameRoom;
 import webLogic.Json2Object.response.ResponseGameRoom;
-import webLogic.Json2Object.simpleObjects.Join;
+import webLogic.Json2Object.simpleObjects.action.Join;
 import webLogic.Json2Object.simpleObjects.RoomSetting;
 import webLogic.Json2Object.RoomsStorage;
 
@@ -64,6 +64,22 @@ public class UserActionController {
         }
         return null; //прописать ошибку
     }
+
+    @RequestMapping(value = "/startgame",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public
+    @ResponseBody
+    ResponseGameRoom startgame(@RequestBody long room_id){
+        for (GameSession cur: RoomsStorage.getInstance().getRoms()){
+            if (cur.getSessionID()==room_id && cur.checkReadyStatus()){
+                cur.startGame();
+                List<GameSession> action_data = new ArrayList<GameSession>();
+                action_data.add(cur);
+                return new ResponseGameRoom(ActionConstant.STATUS_SUCCESS,ActionConstant.USER_ACTION_START_GAME,action_data,null,null);
+            }
+        }
+        return null; // прописать ошибку
+    }
+
 
     public void getPlayerStats() {
 
