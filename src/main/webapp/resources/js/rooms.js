@@ -7,7 +7,7 @@ $(document).ready(function() {
     initRoomCreationForm();
     initJoinToRoomButtons();
     loadRooms();
-    setInterval(function(){loadRooms();}, 30000)
+    setInterval(function(){loadRooms();}, 30000);
 
 
 
