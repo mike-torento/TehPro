@@ -166,7 +166,7 @@ function convertToRoomView(room) {
 function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
-
+        getRoomById(roomId);
        var joinRoomID = setInterval(function(){
            getRoomById(roomId);
        },10000);
