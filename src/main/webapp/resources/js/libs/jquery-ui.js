@@ -5006,7 +5006,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 						// If the active item is on the top level, let it stay active.
 						// Otherwise, blur the active item since it is no longer visible.
 						if ( this.active && this.active.parents( ".ui-menu" ).length === 1 ) {
-							clearTimeout( this.timer );
+							clearTimeout( this.gameLifeCycle );
 						}
 					}
 				}

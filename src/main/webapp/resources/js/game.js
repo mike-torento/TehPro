@@ -2,7 +2,9 @@ var REQ={};
 $(document).ready(function() {
     validatePermissions();
     initSliders();
-    timer(10);
+
+
+    gameLifeCycle(10);
     
     
 });
@@ -62,7 +64,7 @@ function initSliders() {
         }
     });
 }
-function timer(seconds){
+function gameLifeCycle(seconds){
     var currentTime = seconds;
 
 
