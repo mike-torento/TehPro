@@ -5,9 +5,9 @@ $(document).ready(function() {
 
     initUserUIData();
     initRoomCreationForm();
-    initJoinToRoomButtons();
     loadRooms();
-    setInterval(function(){loadRooms();}, 30000);
+    initJoinToRoomButtons();
+    setInterval(function(){loadRooms();  initJoinToRoomButtons();}, 30000);
 
 
 
