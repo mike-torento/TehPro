@@ -204,12 +204,13 @@ function getRoomById(id) {
                 }
                 if(selectedRoom.userList[0].login===JSON.parse(localStorage.getItem("user")).login){
                     $("#start-btn").removeClass("hidden");
+                    $("#start-btn").attr('disabled',true);
                     $("#connect-btn").addClass("hidden");
-                    $("#connect-btn").attr('disabled',true);
 
                 }
                 if(selectedRoom.userList.length===selectedRoom.numberOfPlayers){
-                    $("#connect-btn").attr('disabled',false);
+                    $("#start-btn").attr('disabled',false);
+
                 }
                 if(selectedRoom.state==="ACTIVE"){ //когда игра началась
                     window.location="/TP-dao/resources/game.html"
