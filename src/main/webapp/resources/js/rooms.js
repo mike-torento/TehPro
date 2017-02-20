@@ -199,10 +199,19 @@ function getRoomById(id) {
                     $('#connect-btn').attr('disabled',true);
                     $('#connect-btn').css({"background-color":"grey !important"});
                     $('#connect-btn').text("Вы присоединены к комнате");
+                    $("#connect-btn").addClass("hidden")
                 }
                 if(selectedRoom.userList[0].login===JSON.parse(localStorage.getItem("user")).login){
                     $("#start-btn").removeClass("hidden");
-                    $("#connect-btn").addClass("hidden")
+                    $("#connect-btn").addClass("hidden");
+                    $("#connect-btn").attr('disabled',true);
+
+                }
+                if(selectedRoom.userList.length===selectedRoom.numberOfPlayers){
+                    $("#connect-btn").attr('disabled',false);
+                }
+                if(selectedRoom.state==="ACTIVE"){ //когда игра началась
+                    window.location="/TP-dao/resources/game.html"
                 }
             }
             roomParams += '</ul>';
