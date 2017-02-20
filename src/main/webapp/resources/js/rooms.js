@@ -150,9 +150,9 @@ function convertToRoomView(room) {
         '<ul class="room-parameters" room-id="' + room.sessionID + '">' +
         '<li><i class="glyphicon glyphicon-time"></i>' + room.timeOfSteps + ' секунд</li>' +
         '<li><i class="glyphicon glyphicon-repeat"></i>' + room.numberOfSteps + ' круга</li>' +
-        '<li><i class="glyphicon glyphicon-user"></i>' + room.numberOfPlayers + '/4 игроков</li>' +
+        '<li><i class="glyphicon glyphicon-user"></i>' + room.userList.length + '/'+room.numberOfPlayers+' игроков</li>' +
         '</ul>' +
-        '  <button class="join-to-room-bt btn btn btn-success" data-toggle="modal" data-target="#room-connection-modal">Присоединиться</button>' +
+        '  <button class="join-to-room-bt11 btn btn btn-success" data-toggle="modal" data-target="#room-connection-modal">Присоединиться</button>' +
         '</div>' +
         '</div>';
 
