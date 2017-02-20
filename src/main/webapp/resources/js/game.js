@@ -25,16 +25,20 @@ $(document).ready(function() {
                 }
             }
 
-            MIN_ESM = bankController.bank.countESM;
-            MAX_ESM = MIN_ESM+12;
+            MAX_ESM = bankController.bank.countESM;
+            MIN_ESM = 0;
             MAX_ESM_PRICE = player.money/MAX_ESM;
-            MIN_ESM_PRICE = bankController.bank.minPriceForESM;
+            MIN_ESM_PRICE = bankController.bank.minPriceForESM; //пере
 
             MAX_EGP = bankController.bank.countEGP;
-            MIN_EGP = MAX_EGP - 12;
+            MIN_EGP = 0;
             MAX_EGP_PRICE = bankController.bank.maxPriceForEGP;
             MIN_EGP_PRICE = 1;
 
+
+            for(var i=0; i<players.length;i++){
+                drawPlayer(players[i]);
+            }
 
 
 
@@ -60,6 +64,14 @@ var MAX_ESM;
 var MAX_ESM_PRICE;
 var MIN_ESM_PRICE;
 
+function drawPlayer(player){
+    var template='<div class="player" id="'+player.user.login+
+            +'<img src="img/'+player.user.avatarID+'.png"><div class="player-info"><h4>'+player.user.login+'</h4>'+
+            +'<div class="player-parameters"> <div class="left-col">  Капитал: $'+player.money+' <br> ЕСМ: '+player.numberOfESM+' <br>  <br> </div>'+
+            +' <div class="right-col">ЕГП: '+player.numberOfEGP+' <br> Фабрики: '+player.numberOfStandartFactories+' <br> Авто фабрики: '+player.numberOfUniversalFactories+' <br> </div>  </div>  </div>';
+    $('#players').append(template);
+
+}
 function initSliders() {
     $("#egp-count-slider").slider({
         range: false,
