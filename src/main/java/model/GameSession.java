@@ -28,6 +28,7 @@ public class GameSession {
             this.numberOfSteps = numberOfSteps;
             this.timeOfSteps = timeOfSteps;
             this.state = ActionConstant.ROOM_STATUS_AVAILABLE; //не начата
+            dao.SessionDAO.addNewPlayer(headUser.getLogin(), sessionID);
     }
 
     public GameSession() {
@@ -100,6 +101,7 @@ public class GameSession {
     public void addNewGamer(User newUser) {
         if (userList.size() < numberOfPlayers) {
             userList.add(newUser);
+            dao.SessionDAO.addNewPlayer(newUser.getLogin(), sessionID);
         } else {
             System.out.println("Комната заполнена");
         }

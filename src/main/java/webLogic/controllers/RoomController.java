@@ -34,7 +34,7 @@ public class RoomController {
     @ResponseBody
     ResponseGameRoom updateroom(@RequestBody Long room_id){
         for (GameSession cur: RoomsStorage.getInstance().getRoms()){
-            if (Long.compare(cur.getSessionID(),room_id) == 1 ) {
+            if (cur.getSessionID().equals(room_id)) {
                 List<GameSession> action_data = new ArrayList<GameSession>();
                 action_data.add(cur);
                 return new ResponseGameRoom(ActionConstant.STATUS_SUCCESS,ActionConstant.ROOM_UPDATE,action_data,null,null);
