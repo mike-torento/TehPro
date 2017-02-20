@@ -5,8 +5,10 @@ $(document).ready(function() {
 
     initUserUIData();
     initRoomCreationForm();
-    loadRooms();
     initJoinToRoomButtons();
+    setInterval(function(){loadRooms();}, 30000)
+
+
 
 
 
@@ -152,7 +154,7 @@ function convertToRoomView(room) {
         '<li><i class="glyphicon glyphicon-repeat"></i>' + room.numberOfSteps + ' круга</li>' +
         '<li><i class="glyphicon glyphicon-user"></i>' + room.userList.length + '/'+room.numberOfPlayers+' игроков</li>' +
         '</ul>' +
-        '  <button class="join-to-room-bt11 btn btn btn-success" data-toggle="modal" data-target="#room-connection-modal">Присоединиться</button>' +
+        '  <button class="join-to-room-bt btn btn btn-success" data-toggle="modal" data-target="#room-connection-modal">Присоединиться</button>' +
         '</div>' +
         '</div>';
 
@@ -164,7 +166,11 @@ function convertToRoomView(room) {
 function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
-       getRoomById(roomId);
+        $("#close-connect-to-room").click(function () {
+            clearInterval(selectedRoomID);
+            console.log("selectedRoomID cleared");
+        });
+       var selectedRoomID= setInterval(getRoomById(roomId), 20000);
 
     });
 }
@@ -196,6 +202,19 @@ function getRoomById(id) {
             $('#connect-btn').click(function() {
                 //тут отправляем запрос пользователя на подключение к игре
                 console.log(selectedRoom);
+
+                $.ajax({
+                    url: '/TP-dao/updateroom',
+                    type: 'POST',
+                    async: false,
+                    dataType: 'json',
+                    data: id,
+                    contentType: "application/json",
+                    success: function (data) {
+
+                    }
+                });
+
             });
         }
     });
