@@ -6,6 +6,7 @@ $(document).ready(function() {
     initUserUIData();
     initRoomCreationForm();
     initJoinToRoomButtons();
+    loadRooms();
     setInterval(function(){loadRooms();}, 30000)
 
 
@@ -166,6 +167,7 @@ function convertToRoomView(room) {
 function initJoinToRoomButtons() {
     $('.join-to-room-bt').click(function() {
         var roomId = $(this).siblings('.room-parameters').attr('room-id');
+        getRoomById(roomId);
         $("#close-connect-to-room").click(function () {
             clearInterval(selectedRoomID);
             console.log("selectedRoomID cleared");
