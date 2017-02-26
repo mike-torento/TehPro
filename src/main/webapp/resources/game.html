@@ -32,8 +32,6 @@
         <div id="developers-button-sb" class="sidebar-item" data-toggle="tooltip" data-placement="right" title="Разработчики">
             <i class="glyphicon glyphicon-asterisk"></i>
         </div>
-        <div id="create-room-button-sb" class="sidebar-item" data-toggle="modal" data-target="#room-creation-modal" data-placement="right" title="Создать комнату">
-            <i class="glyphicon glyphicon-plus-sign"></i>
         </div>
         <div id="logout-button-sb" class="sidebar-item" data-toggle="tooltip" data-placement="right" title="Выход">
             <i class="glyphicon glyphicon-off"></i>
@@ -70,8 +68,8 @@
                         <div id="egp-cost-slider" class="room-creation-slider"></div>
                     </div>
                     <div class="buttons-group">
-                        <div id="egp-accept" class="btn res-btn">Подать заявку</div>
-                        <div id="egp-reset" class="btn res-btn">Сброс</div>
+                        <div id="egp-accept" class="btn res-btn disabled">Подать заявку</div>
+                        <div id="egp-reset" class="btn res-btn disabled">Сброс</div>
                     </div>
 
                 </form>
@@ -92,8 +90,8 @@
                         <div id="esm-cost-slider" class="room-creation-slider"></div>
                     </div>
                     <div class="buttons-group">
-                        <div id="esm-accept" class="btn res-btn">Подать заявку</div>
-                        <div id="esm-reset" class="btn res-btn">Сброс</div>
+                        <div id="esm-accept" class="btn res-btn disabled">Подать заявку</div>
+                        <div id="esm-reset" class="btn res-btn disabled">Сброс</div>
                     </div>
 
                 </form>
@@ -110,27 +108,36 @@
                     <div>ЕСМ</div></div>
             </div>
             <div id="fabrics">
-                <div class="fabric" id="simple-fabric">
-                    Ф
-                    <div class="fabric-counter">2/4</div>
-                </div>
-                <div class="fabric" id="auto-fabric">
-                    ФА
-                    <div class="fabric-counter"></div>
-                </div>
-                <div class="fabric" id="builded-fabric">
-                    ФС
-                    <div class="fabric-counter"></div>
-                </div>
-                <div class="fabric" id="upgraded-fabric">
-                    ФУ
-                    <div class="fabric-counter"></div>
+                <!--<div class="fabric" id="simple-fabric">-->
+                    <!--Ф-->
+                    <!--<div class="fabric-counter">2/4</div>-->
+                <!--</div>-->
+                <!--<div class="fabric" id="simple-fabric">-->
+                    <!--Ф-->
+                    <!--<div class="fabric-counter">2/4</div>-->
+                <!--</div>-->
+                <!--<div class="fabric" id="simple-fabric">-->
+                    <!--Ф-->
+                    <!--<div class="fabric-counter">2/4</div>-->
+                <!--</div>-->
+                <!--<div class="fabric" id="auto-fabric">-->
+                    <!--ФА-->
+                    <!--<div class="fabric-counter"></div>-->
+                <!--</div>-->
+                <!--<div class="fabric" id="builded-fabric">-->
+                    <!--ФС-->
+                    <!--<div class="fabric-counter"></div>-->
+                <!--</div>-->
+                <!--<div class="fabric" id="upgraded-fabric">-->
+                    <!--ФУ-->
+                    <!--<div class="fabric-counter"></div>-->
+                <!--</div>-->
+                <div id="new-fabric" class="fabric" >
+                    +
                 </div>
 
             </div>
-            <div id="new-fabric">
-                +
-            </div>
+
         </div>
     </div>
     <div id="players-actions">
@@ -142,16 +149,16 @@
             <div id="time-outer">
                 <h4>Время хода</h4>
                 <div id="time">
-                    <div>123</div>
+                    <div></div>
                 </div>
             </div>
             <div id="round-outer">
                 <h4>Круг</h4>
                 <div id="round">
-                    <div>123</div>
+                    <div></div>
                 </div>
             </div>
-            <button id="end-round-btn" class="btn ">Заверщить ход</button>
+            <button id="end-round-btn" class="btn ">Завершить ход</button>
         </div>
     </div>
 
