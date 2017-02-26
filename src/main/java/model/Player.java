@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
 
     private User user;
@@ -12,7 +15,7 @@ public class Player {
     private int numberOfReadyUniversalFactories;
     private boolean Bankrupt;
 
-    private int loan; //сумма задолженности ссуды
+    private List<Loan> loan ; 
 
     private int theRequiredNumberOfESM;
     private int theRequiredPriceOfESM;
@@ -25,10 +28,11 @@ public class Player {
         this.user = user;
         money = 10000;
         numberOfEGP = 2;
-        numberOfESM = 2;
+        numberOfESM = 4;
         numberOfStandartFactories = 2;
         numberOfReadyStandartFactories = 2;
         Bankrupt = false;
+        loan = new ArrayList<>();
     }
 
     public Player() {
@@ -138,13 +142,60 @@ public class Player {
         this.Bankrupt = Bankrupt;
     }
 
-    public int getLoan() {
+    public List<Loan> getLoan() {
         return loan;
     }
 
-    public void setLoan(int loan) {
+    public void setLoan(List<Loan> loan) {
         this.loan = loan;
     }
 
+    public int getSumLoans(){
+        int sum = 0;
+        for (Loan loan1 : loan) {
+            if(loan1.getTheEndOfLoan()>0){
+                sum = sum + loan1.getLoan();
+            }
+        }
+        return sum;
+    }
+    
+    public void addLoan(int summ){
+        loan.add(new Loan(summ));
+    }
+
+    public class Loan{
+        private int loan;
+        private int theEndOfLoan;
+
+        public Loan(int loan) {
+            this.loan = loan;
+            this.theEndOfLoan = 12;
+        }
+        
+        public Loan(){
+ 
+        }
+        
+
+        public int getLoan() {
+            return loan;
+        }
+
+        public void setLoan(int loan) {
+            this.loan = loan;
+        }
+
+        public int getTheEndOfLoan() {
+            return theEndOfLoan;
+        }
+
+        public void setTheEndOfLoan(int theEndOfLoan) {
+            this.theEndOfLoan = theEndOfLoan;
+        }
+        
+        
+    }
+    
     
 }

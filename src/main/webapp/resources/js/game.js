@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 
 
-    gameLifeCycle(10);
+    gameLifeCycle(100);
 
 
     $.ajax({
@@ -27,8 +27,8 @@ $(document).ready(function() {
 
             MAX_ESM = bankController.bank.countESM;
             MIN_ESM = 0;
-            MAX_ESM_PRICE = player.money/MAX_ESM;
-            MIN_ESM_PRICE = bankController.bank.minPriceForESM; //пере
+            MAX_ESM_PRICE = 5500;
+            MIN_ESM_PRICE = bankController.bank.minPriceForESM; 
 
             MAX_EGP = bankController.bank.countEGP;
             MIN_EGP = 0;
@@ -39,9 +39,6 @@ $(document).ready(function() {
             for(var i=0; i<players.length;i++){
                 drawPlayer(players[i]);
             }
-
-
-
 
 
             initSliders();
@@ -65,12 +62,26 @@ var MAX_ESM_PRICE;
 var MIN_ESM_PRICE;
 
 function drawPlayer(player){
-    var template='<div class="player" id="'+player.user.login+
-            +'<img src="img/'+player.user.avatarID+'.png"><div class="player-info"><h4>'+player.user.login+'</h4>'+
-            +'<div class="player-parameters"> <div class="left-col">  Капитал: $'+player.money+' <br> ЕСМ: '+player.numberOfESM+' <br>  <br> </div>'+
-            +' <div class="right-col">ЕГП: '+player.numberOfEGP+' <br> Фабрики: '+player.numberOfStandartFactories+' <br> Авто фабрики: '+player.numberOfUniversalFactories+' <br> </div>  </div>  </div>';
+    var template= ('<div class="player" id="'+ player.user.login +'">'+
+                    '<img src="img/'+ player.user.avatarID +'.png">' +
+                            '<div class="player-info"> '+
+                            '<h4>'+ player.user.login +'</h4>'+
+                                    '<div class="player-parameters">' +
+                                            '<div class="left-col">' +
+                                                    'Наличные: $'+ player.money +
+                                                    '<br> Ссуды: $'+ player.loan +'<br> СТ. Фабрики '+ player.numberOfReadyStandartFactories +'<br>'+
+                                            '</div> '+
+                                            '<div class="right-col"> '+
+                                                    'ЕГП: '+ player.numberOfEGP +'<br> ЕСМ: '+ player.numberOfESM +
+                                                    '<br> УЛ. Фабрики '+ player.numberOfReadyUniversalFactories +'<br>'+
+                                            '</div> '+
+                                    '</div> '+
+                            '</div> '+
+                   ' </div>');
+            
+                 
     $('#players').append(template);
-
+    
 }
 function initSliders() {
     $("#egp-count-slider").slider({
@@ -79,7 +90,6 @@ function initSliders() {
         max: MAX_EGP,
         values: [MIN_EGP],
         slide: function (event, ui) {
-            console.log(ui.values[0]);
             $('#egp-count').html(ui.values[0]);
             rounds = ui.values[0];
         }
@@ -91,7 +101,6 @@ function initSliders() {
         max: MAX_EGP_PRICE,
         values: [MIN_EGP_PRICE],
         slide: function (event, ui) {
-            console.log(ui.values[0]);
             $('#egp-cost').html(ui.values[0]);
             rounds = ui.values[0];
         }
@@ -103,7 +112,6 @@ function initSliders() {
         max: MAX_ESM,
         values: [MIN_ESM],
         slide: function (event, ui) {
-            console.log(ui.values[0]);
             $('#esm-count').html(ui.values[0]);
             rounds = ui.values[0];
         }
@@ -115,7 +123,6 @@ function initSliders() {
         max: MAX_ESM_PRICE,
         values: [MIN_ESM_PRICE],
         slide: function (event, ui) {
-            console.log(ui.values[0]);
             $('#esm-cost').html(ui.values[0]);
             rounds = ui.values[0];
         }

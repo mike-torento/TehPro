@@ -120,14 +120,15 @@ public class BankController {
         }
 
     }
-
-    //получить прибыль
+  
+    
     //списываем налоги
     public void writeOffMonthlyOutgoings() {
         for (int i = 0; i < playersList.size(); i++) {
             if (!playersList.get(i).isBankrupt()) {
                 int nalog = 300 * playersList.get(i).getNumberOfESM() + 500 * playersList.get(i).getNumberOfEGP()
                         + 1000 * playersList.get(i).getNumberOfReadyStandartFactories() + 1500 * playersList.get(i).getNumberOfUniversalFactories();
+                playersList.get(i).setMoney(playersList.get(i).getMoney() - nalog);
             }
         }
     }
@@ -159,30 +160,26 @@ public class BankController {
     }
 
     //переработаьь ЕСМ в ЕГП 
-    public boolean recycleESM(User user, int numberOfESM, String TypeOfFactory) {
+    public void recycleESM(User user, int numberOfESM, String TypeOfFactory) {
         for (Player player : playersList) {
             if (player.getUser().getLogin().equals(user.getLogin())) {
                 if (player.getNumberOfESM() >= numberOfESM) {
                     if (TypeOfFactory.equals("standart")) {
                         player.setNumberOfESM(player.getNumberOfESM() - numberOfESM);
                         player.setMoney(player.getMoney() - numberOfESM * 2000);
-                        return true;
                     }
                     if (TypeOfFactory.equals("universal")) {
                         if (numberOfESM % 2 == 0) {
                             player.setNumberOfESM(player.getNumberOfESM() - numberOfESM);
                             player.setMoney(player.getMoney() - numberOfESM * 1500);
-                            return true;
                         } else {
                             player.setNumberOfESM(player.getNumberOfESM() - numberOfESM);
                             player.setMoney(player.getMoney() - (numberOfESM - 1) * 1500 - 2000);
-                            return true;
                         }
                     }
                 }
             }
         }
-        return false;
     }
 
     //подали заявку на покупку ЕСМ (юзер, количество, стоимость)
@@ -250,7 +247,7 @@ public class BankController {
         }
 
     }
-    
+
     //банк обрабатывает запросы на покупку ЕГП у пользователе
     public void processRequestForPurchaseEGP() {
         for (Player player : playersList) {
@@ -267,7 +264,7 @@ public class BankController {
 
         if (bank.getCountEGP() > 0) {
             for (Player player : playersList) {
-                if(player.getSellPriceOfEGP()== findMinPriceForEGP()){
+                if (player.getSellPriceOfEGP() == findMinPriceForEGP()) {
                     player.setMoney(player.getMoney() + bank.getCountEGP() * player.getSellPriceOfEGP());
                     bank.setCountEGP(0);
                     player.setSellNumberOfEGP(0);
@@ -279,21 +276,35 @@ public class BankController {
     }
 
     //взять ссуду
-    public void getLoan(User user){
+    public void getLoan(User user) {
         for (Player player : playersList) {
-            if(player.getUser().getLogin().equals(user.getLogin())){
-                player.setLoan(player.getNumberOfReadyStandartFactories()* 5000 + player.getNumberOfReadyUniversalFactories()* 10000);
+            if (player.getUser().getLogin().equals(user.getLogin())) {
+                player.addLoan(player.getNumberOfReadyStandartFactories() * 5000 + player.getNumberOfReadyUniversalFactories() * 10000);
+                player.setMoney(player.getMoney() + player.getNumberOfReadyStandartFactories() * 5000 + player.getNumberOfReadyUniversalFactories() * 10000 );
             }
         }
     }
+
+    //выплатить ежемесячный проент по ссуде и если пришел срок то саму ссуду
+    public void payInterestOnTheLoan() {
+        for (Player player : playersList) {
+            if (player.getLoan().size() > 0) {
+                player.setMoney(player.getMoney() - (int) Math.round(player.getSumLoans() * 0.01));
+                for (Player.Loan loan : player.getLoan()) {
+                    if (loan.getTheEndOfLoan() == 0){
+                        player.setMoney(player.getMoney() - loan.getLoan());
+                        loan.setTheEndOfLoan(-1);
+                    }
+                    if (loan.getTheEndOfLoan() > 0) {
+                        loan.setTheEndOfLoan(loan.getTheEndOfLoan() - 1);
+                    }
+                    
+                }
+            }
+
+        }
+    }
+
     
-    //выплатить ежемесячный проент по ссуде
-   public void payInterestOnTheLoan(){
-       for (Player player : playersList) {
-               if(player.getLoan()>0){
-                   player.setMoney(player.getMoney() - (int)Math.round(player.getLoan() * 0.01));
-               }
-       }
-   }
-    
+
 }

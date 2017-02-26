@@ -116,5 +116,15 @@ public class GameSession {
         state = ActionConstant.ROOM_STATUS_ACTIVE;
         dao.SessionDAO.editRoomStatus(getSessionID(), ActionConstant.ROOM_STATUS_ACTIVE);
     }
+    
+    public void nextStep(){
+        setNumberOfSteps(numberOfSteps - 1);
+        bankController.checkBankrupts();
+        bankController.writeOffMonthlyOutgoings();
+        bankController.setCurrentLevel();
+        bankController.setPriseAndCountResourses();
+        
+        
+    }
 
 }
