@@ -11,6 +11,8 @@ public class ResponseGameRoom {
     private List<GameSession> action_data;
     private List<GameSession> rooms;
     private List<GameSession> unfinished_rooms;
+    // текущий круг
+    //
 
     public ResponseGameRoom() {
     }

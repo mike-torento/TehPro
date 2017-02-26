@@ -2,24 +2,21 @@ package webLogic.Json2Object.simpleObjects.action;
 
 import webLogic.Json2Object.simpleObjects.states.EGP;
 import webLogic.Json2Object.simpleObjects.states.ESM;
+import webLogic.Json2Object.simpleObjects.states.Process;
 
 public class PlayerAction {
     private EGP egp;
     private ESM esm;
-    private int upgrade_fabric;
-    private int build_fabric;
+    private Process process; // fabric inf
     private int credit;
-    // еще добавить производство егп
-
 
     public PlayerAction() {
     }
 
-    public PlayerAction(EGP egp, ESM esm, int upgrade_fabric, int build_fabric, int credit) {
+    public PlayerAction(EGP egp, ESM esm, Process process, int credit) {
         this.egp = egp;
         this.esm = esm;
-        this.upgrade_fabric = upgrade_fabric;
-        this.build_fabric = build_fabric;
+        this.process = process;
         this.credit = credit;
     }
 
@@ -39,20 +36,12 @@ public class PlayerAction {
         this.esm = esm;
     }
 
-    public int getUpgrade_fabric() {
-        return upgrade_fabric;
+    public Process getProcess() {
+        return process;
     }
 
-    public void setUpgrade_fabric(int upgrade_fabric) {
-        this.upgrade_fabric = upgrade_fabric;
-    }
-
-    public int getBuild_fabric() {
-        return build_fabric;
-    }
-
-    public void setBuild_fabric(int build_fabric) {
-        this.build_fabric = build_fabric;
+    public void setProcess(Process process) {
+        this.process = process;
     }
 
     public int getCredit() {

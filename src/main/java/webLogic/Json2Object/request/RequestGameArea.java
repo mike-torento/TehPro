@@ -6,16 +6,14 @@ import java.util.List;
 
 public class RequestGameArea {
     private long room_id;
-    private String action;
     private String login;
     private PlayerAction action_data;
 
     public RequestGameArea() {
     }
 
-    public RequestGameArea(long room_id, String action, String login, PlayerAction action_data) {
+    public RequestGameArea(long room_id, String login, PlayerAction action_data) {
         this.room_id = room_id;
-        this.action = action;
         this.login = login;
         this.action_data = action_data;
     }
@@ -26,14 +24,6 @@ public class RequestGameArea {
 
     public void setRoom_id(long room_id) {
         this.room_id = room_id;
-    }
-
-    public String getAction() {
-        return action;
-    }
-
-    public void setAction(String action) {
-        this.action = action;
     }
 
     public String getLogin() {
