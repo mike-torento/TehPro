@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="js/libs/jquery-ui.min.css">
+    <link rel="stylesheet" href="js/libs/jquery-ui.theme.css">
+    <script src="js/libs/jquery-3.1.0.js" charset="utf-8"></script>
+    <script src="js/libs/jquery-ui.js" charset="utf-8"></script>
+    <script src="js/libs/bootstrap.js"></script>
+    <title>Игра "Менеджмент"</title>
+</head>
+
+<body style="background-color:#fdfdfd; font-family: ' Helvetica Neue ', Helvetica, Arial, sans-serif;">
+    <div id="sidebar" style="z-index: 9998 !important;">
+        <div id="profile-button-sb" class="sidebar-item" data-toggle="tooltip" data-placement="right" title="Профиль игрока">
+            <img src="" alt="" style="width: 45px;
+    height: 45px; margin-left:2px; margin-top: 2px; ">
+        </div>
+        <div id="statistic-button-sb" class="sidebar-item" data-toggle="tooltip" data-placement="right" title="Статистика">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </div>
+        <div id="rules-button-sb" class="sidebar-item" data-toggle="tooltip" data-placement="right" title="Правила игры">
+            <i class="glyphicon glyphicon-th-list"></i>
+        </div>
+        <div id="system-button-sb" class="sidebar-item" data-toggle="tooltip" data-placement="right" title="Информация о системе"><i class="glyphicon glyphicon-info-sign"></i>
+        </div>
+        <div id="developers-button-sb" class="sidebar-item" data-toggle="tooltip" data-placement="right" title="Разработчики">
+            <i class="glyphicon glyphicon-asterisk"></i>
+        </div>
+        <div id="create-room-button-sb" class="sidebar-item" data-toggle="modal" data-target="#room-creation-modal" data-placement="right" title="Создать комнату">
+            <i class="glyphicon glyphicon-plus-sign"></i>
+        </div>
+        <div id="logout-button-sb" class="sidebar-item" data-toggle="tooltip" data-placement="right" title="Выход">
+            <i class="glyphicon glyphicon-off"></i>
+        </div>
+    </div>
+    <div id="left-side-panel" style="display:none;"></div>
+    <div id="game-parameters">
+        <div id="bank">
+            <img src="img\bank.png" alt="">
+            <div id="bank-parameters">
+                <h3>Банк</h3>
+                <div style="border: 1px double black;">
+                    <h5 style="margin-left: 20px;">Куплю: 4 ЕГП</h5>
+                    <h5 style="margin-left: 20px;">Цена покупки ЕГП: 5500</h5>
+                </div>
+                <div style="border: 1px double black;">
+                    <h5 style="margin-left: 20px; margin-top:17px;">Продам: 4 ЕСМ</h5> 
+                    <h5 style="margin-left: 20px;">Цена продажи ЕСМ: 500</h5>
+                </div>
+                
+            </div>
+        </div>
+        <div id="egp">
+            <h3>Продажа ЕГП</h3>
+            <div id="egp-data">
+
+                <form class="form-inline egp-form">
+                    <div>
+                        <div class="slider-pre heade">Количество: <i id='egp-count'></i></div>
+                        <div id="egp-count-slider" class="room-creation-slider"></div>
+                    </div>
+                    <div>
+                        <div class="slider-pre heade">Стоимость: <i id='egp-cost'></i></div>
+                        <div id="egp-cost-slider" class="room-creation-slider"></div>
+                    </div>
+                    <div class="buttons-group">
+                        <div id="egp-accept" class="btn res-btn">Подать заявку</div>
+                        <div id="egp-reset" class="btn res-btn">Сброс</div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <div id="esm">
+            <h3>Покупка ЕСМ</h3>
+            <div id="esm-data">
+
+                <form class="form-inline egp-form">
+                    <div>
+                        <div class="slider-pre heade">Количество: <i id='esm-count'></i></div>
+                        <div id="esm-count-slider" class="room-creation-slider"></div>
+                    </div>
+                    <div>
+                        <div class="slider-pre heade">Стоимость: <i id='esm-cost'></i></div>
+                        <div id="esm-cost-slider" class="room-creation-slider"></div>
+                    </div>
+                    <div class="buttons-group">
+                        <div id="esm-accept" class="btn res-btn">Подать заявку</div>
+                        <div id="esm-reset" class="btn res-btn">Сброс</div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <div id="resources-outer">
+            <div id="numeric-resources">
+                <div id="money-counter">
+                    <div>$</div></div>
+                <div id="egp-counter">
+                    <div>ЕГП</div></div>
+                <div id="esm-counter">
+                    <div>ЕСМ</div></div>
+            </div>
+            <div id="fabrics">
+                <div class="fabric" id="simple-fabric">
+                    Ф
+                    <div class="fabric-counter">2/4</div>
+                </div>
+                <div class="fabric" id="auto-fabric">
+                    ФА
+                    <div class="fabric-counter"></div>
+                </div>
+                <div class="fabric" id="builded-fabric">
+                    ФС
+                    <div class="fabric-counter"></div>
+                </div>
+                <div class="fabric" id="upgraded-fabric">
+                    ФУ
+                    <div class="fabric-counter"></div>
+                </div>
+
+            </div>
+            <div id="new-fabric">
+                +
+            </div>
+        </div>
+    </div>
+    <div id="players-actions">
+        <h3>Игроки</h3>
+        <div id="players">
+
+        </div>
+        <div id="actions">
+            <div id="time-outer">
+                <h4>Время хода</h4>
+                <div id="time">
+                    <div>123</div>
+                </div>
+            </div>
+            <div id="round-outer">
+                <h4>Круг</h4>
+                <div id="round">
+                    <div>123</div>
+                </div>
+            </div>
+            <button id="end-round-btn" class="btn ">Заверщить ход</button>
+        </div>
+    </div>
+
+    <script src="js/rooms.js" charset="utf-8"></script>
+    <script src="js/game.js" charset="utf-8"></script>
+</body>
+
+</html>

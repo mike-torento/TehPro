@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="js/libs/jquery-ui.min.css">
+  <link rel="stylesheet" href="js/libs/jquery-ui.theme.css">
+  <script src="js/libs/jquery-3.1.0.js" charset="utf-8"></script>
+  <script src="js/libs/jquery-ui.js" charset="utf-8"></script>
+        <script src="js/libs/bootstrap.js"></script>
+  <title>Игра "Менеджмент"</title>
+</head>
+<body style="background-color:#fdfdfd; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;">
+  <div id="sidebar">
+    <div id="profile-button-sb"class="sidebar-item" data-toggle="tooltip"
+        data-placement="right" title="Профиль игрока">
+      <img src="" alt="" style="width: 45px;
+    height: 45px; margin-left:2px; margin-: ">
+      </div>
+    <div id="statistic-button-sb" class="sidebar-item" data-toggle="tooltip"
+        data-placement="right" title="Статистика">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </div>
+    <div id="rules-button-sb" class="sidebar-item" data-toggle="tooltip"
+        data-placement="right" title="Правила игры">
+        <i class="glyphicon glyphicon-th-list"></i>
+      </div>
+    <div id="system-button-sb" class="sidebar-item" data-toggle="tooltip"
+        data-placement="right" title="Информация о системе"><i class="glyphicon glyphicon-info-sign"></i>
+      </div>
+    <div id="developers-button-sb"class="sidebar-item" data-toggle="tooltip"
+        data-placement="right" title="Разработчики">
+        <i class="glyphicon glyphicon-asterisk"></i>
+      </div>
+      <div id="create-room-button-sb" class="sidebar-item" data-toggle="modal" data-target="#room-creation-modal"
+          data-placement="right" title="Создать комнату">
+          <i class="glyphicon glyphicon-plus-sign"></i>
+        </div>
+      <div id="logout-button-sb" class="sidebar-item" data-toggle="tooltip"
+          data-placement="right" title="Выход">
+          <i class="glyphicon glyphicon-off"></i>
+        </div>
+  </div>
+  <div id="left-side-panel" style="display:none;"></div>
+  <div id="rooms" >
+    <div id="available-rooms" >
+      <div class="rooms-list-header">
+        <h3>Доступные игровые комнаты</h3>
+      </div>
+      <div class="rooms-list" id="available-rooms-items">
+
+
+      </div>
+    </div>
+    <div id="unfinished-rooms">
+      <div class="rooms-list-header">
+        <h3>Незавершенные игры</h3>
+      </div>
+      <div class="rooms-list" id="unfinished-rooms-items">
+        <div class="room-list-item">
+            <h4>Комната 1</h4>
+            <div class="rooms-param-wrapper">
+              <ul class="room-parameters" id="room-name">
+              <li><i class="glyphicon glyphicon-time"></i>120 секунд</li>
+              <li><i class="glyphicon glyphicon-repeat"></i>4 круга</li>
+              <li><i class="glyphicon glyphicon-user"></i>3/4 игроков</li>
+            </ul>
+            <button class="join-to-room-bt btn btn btn-success">Продолжить</button>
+            </div>
+        </div>
+        <div class="room-list-item">
+            <h4>Комната 1 тест тест текста в заголовке</h4>
+            <div class="rooms-param-wrapper">
+              <ul class="room-parameters" id="room-name">
+              <li><i class="glyphicon glyphicon-time"></i>120 секунд</li>
+              <li><i class="glyphicon glyphicon-repeat"></i>4 круга</li>
+              <li><i class="glyphicon glyphicon-user"></i>3/4 игроков</li>
+            </ul>
+            <button class="join-to-room-bt btn btn btn-success">Продолжить</button>
+            </div>
+        </div>
+
+        <div class="room-list-item">
+            <h4>Комната 1</h4>
+            <div class="rooms-param-wrapper">
+              <ul class="room-parameters" id="room-name">
+              <li><i class="glyphicon glyphicon-time"></i>120 секунд</li>
+              <li><i class="glyphicon glyphicon-repeat"></i>4 круга</li>
+              <li><i class="glyphicon glyphicon-user"></i>3/4 игроков</li>
+            </ul>
+            <button class="join-to-room-bt btn btn btn-success">Продолжить</button>
+            </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Connect to room-->
+  <div class="modal fade" id="room-connection-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="room-name-modal"></h4>
+        </div>
+        <div class="modal-body" id="room-parameters">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="connect-btn" class="btn btn-success">Присоединиться к игре</button>
+          <button type="button" id="start-btn" class="btn btn-success hidden">Начать игру</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Create room-->
+  <div class="modal fade" id="room-creation-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-connect-to-room">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Создание игровой комнаты</h4>
+        </div>
+        <div class="modal-body" id="newroom-parameters">
+
+          <form class="form-inline" style="margin-left:20vh;">
+            <div class="form-group">
+              <label for="room-name-field">Имя комнаты: </label>
+              <input type="text" class="form-control" id="RoomName" placeholder="Введите имя комнаты">
+            </div>
+            <div style="margin-top:20px;">
+              <div class="slider-pre">Количество игроков: <i id='selected-players-count'>4</i></div>
+              <div id="player-slider" class="room-creation-slider"></div>
+            </div>
+            <div style="margin-top:20px;">
+              <div class="slider-pre">Количество кругов: <i id='selected-round-count'>24</i></div>
+              <div id="round-slider" class="room-creation-slider"></div>
+            </div>
+            <div style="margin-top:20px;">
+              <div class="slider-pre">Время круга: <i id='selected-time'>90</i> секунд</div>
+              <div id="time-slider" class="room-creation-slider"></div>
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="create-room-btn" class="btn btn-success">Создать игру</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="js/rooms.js" charset="utf-8"></script>
+</body>
+</html>
