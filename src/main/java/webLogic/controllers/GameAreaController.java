@@ -62,6 +62,6 @@ public class GameAreaController {
                     rga.getAction_data().getEgp().getCost());
             // улучшение / построение фабрик; перерпботка есм
         }
-
+        return null;
     }
 }
