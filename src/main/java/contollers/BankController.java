@@ -134,12 +134,19 @@ public class BankController {
     }
 
     //проверяем банкротов
-    public void checkBankrupts() {
+    public boolean checkBankrupts() {
+        int b = 0;
         for (int i = 0; i < playersList.size(); i++) {
             if (playersList.get(i).getMoney() < 0) {
                 playersList.get(i).setBankrupt(true);
+                b++;
             }
         }
+        if( b == playersList.size()){
+            return true;
+        }
+        return  false;
+        
     }
 
     //устанавливаем количество и цены на ресурсы
@@ -304,7 +311,7 @@ public class BankController {
 
         }
     }
-
+    
     
 
 }
