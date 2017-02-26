@@ -2,13 +2,142 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5861e4b1-3399-4420-9a85-1215391a51f5" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/webLogic/Json2Object/simpleObjects/action/BankAction.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/webLogic/Json2Object/simpleObjects/states/Statistics.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT.war" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/contollers/BankController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/dao/SessionDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/dao/UserDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/model/Bank.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/model/GameSession.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/model/Player.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/model/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/ActionConstant.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/RoomsStorage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/request/RequestGameArea.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/request/RequestGameRoom.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/response/ResponseAuthorization.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/response/ResponseGameArea.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/response/ResponseGameRoom.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/response/ResponseRegistration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/simpleObjects/RoomSetting.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/simpleObjects/action/BankAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/simpleObjects/action/Join.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/simpleObjects/action/PlayerAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/simpleObjects/states/EGP.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/simpleObjects/states/ESM.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/simpleObjects/states/PlayerStates.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/Json2Object/simpleObjects/states/Statistics.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/controllers/AuthorizationController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/controllers/GameAreaController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/controllers/RegistrationController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/controllers/RoomController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/controllers/RunController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/controllers/UserActionController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/springConfig/DispatcherServletInitializer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/classes/webLogic/springConfig/WebConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/commons-logging-1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-2.8.6.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/javax.servlet-api-3.1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/postgresql-9.1-901.jdbc4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/spring-context-4.3.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/spring-core-4.3.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/spring-web-4.3.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/doc.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/authentification.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/bootstrap-theme.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/bootstrap.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/game.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/bank.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/img/logo_managemet.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/authorization.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/game.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/images/ui-icons_444444_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/images/ui-icons_555555_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/images/ui-icons_777620_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/images/ui-icons_777777_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/images/ui-icons_cc0000_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/images/ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/jquery-3.1.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/jquery-ui.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/libs/npm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/registration.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/rooms.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/registration.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/rooms.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/contollers/BankController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/dao/SessionDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/dao/UserDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/model/Bank.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/model/GameSession.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/model/Player.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/model/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/ActionConstant.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/RoomsStorage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/request/RequestGameArea.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/request/RequestGameRoom.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/response/ResponseAuthorization.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/response/ResponseGameArea.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/response/ResponseGameRoom.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/response/ResponseRegistration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/simpleObjects/RoomSetting.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/simpleObjects/action/BankAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/simpleObjects/action/Join.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/simpleObjects/action/PlayerAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/simpleObjects/states/EGP.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/simpleObjects/states/ESM.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/simpleObjects/states/PlayerStates.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/Json2Object/simpleObjects/states/Statistics.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/controllers/AuthorizationController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/controllers/GameAreaController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/controllers/RegistrationController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/controllers/RoomController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/controllers/RunController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/controllers/UserActionController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/springConfig/DispatcherServletInitializer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/webLogic/springConfig/WebConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/endorsed/javaee-endorsed-api-7.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/contollers/BankController.java" afterPath="$PROJECT_DIR$/src/main/java/contollers/BankController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/GameSession.java" afterPath="$PROJECT_DIR$/src/main/java/model/GameSession.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Player.java" afterPath="$PROJECT_DIR$/src/main/java/model/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/game.html" afterPath="$PROJECT_DIR$/src/main/webapp/resources/game.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/game.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/style.css" afterPath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/game.html" afterPath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/game.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/game.js" afterPath="$PROJECT_DIR$/target/TP-1.0-SNAPSHOT/resources/js/game.js" />
     </list>
     <list id="777a200e-3af9-4d30-bf4b-53ab9898115b" name="Failed commit: Default" comment="Пиздец" />
     <ignored path="TP.iws" />
@@ -47,11 +176,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GameAreaController.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GameAreaController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/webLogic/controllers/GameAreaController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="20" />
+                <state relative-caret-position="357">
+                  <caret line="58" column="50" selection-start-line="58" selection-start-column="50" selection-end-line="58" selection-end-column="50" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ActionConstant.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/webLogic/Json2Object/ActionConstant.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="238">
+                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -77,11 +216,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/game.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="124">
-                  <caret line="344" column="4" selection-start-line="344" selection-start-column="4" selection-end-line="344" selection-end-column="4" />
+                <state relative-caret-position="158">
+                  <caret line="351" column="26" selection-start-line="351" selection-start-column="26" selection-end-line="351" selection-end-column="26" />
                   <folding>
                     <element signature="n#!!block;n#drawPlayer#0" expanded="false" />
                   </folding>
@@ -106,13 +245,18 @@
           <file leaf-file-name="game.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/game.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="331">
-                  <caret line="151" column="58" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="58" />
+                <state relative-caret-position="484">
+                  <caret line="160" column="58" selection-start-line="160" selection-start-column="58" selection-end-line="160" selection-end-column="58" />
                   <folding>
                     <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <marker date="1488136566836" expanded="true" signature="4547:5640" placeholder="..." />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#h5#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#h5#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#h5#1;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -148,8 +292,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/authorization.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/game.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/game.js" />
         <option value="$PROJECT_DIR$/src/main/java/webLogic/controllers/GameAreaController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/game.js" />
       </list>
     </option>
   </component>
@@ -317,6 +461,96 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webLogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="springConfig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TehPro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webLogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Json2Object" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TehPro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webLogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TehPro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1011,7 +1245,7 @@
       <updated>1487521950300</updated>
       <workItem from="1487521956578" duration="34397000" />
       <workItem from="1487710724789" duration="1481000" />
-      <workItem from="1488119345960" duration="23387000" />
+      <workItem from="1488119345960" duration="23877000" />
     </task>
     <task id="LOCAL-00001" summary="Пиздец">
       <created>1487531787869</created>
@@ -1339,11 +1573,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59265000" />
+    <option name="totallyTimeSpent" value="59755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1367,7 +1601,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33226153" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16257995" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22068231" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1550,7 +1784,12 @@
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1488136566836" expanded="true" signature="4547:5640" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#1;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1642,7 +1881,12 @@
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1488136566836" expanded="true" signature="4547:5640" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#1;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1769,14 +2013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/registration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webLogic/controllers/AuthorizationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1803,32 +2039,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="151" column="58" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="58" />
+        <state relative-caret-position="484">
+          <caret line="160" column="58" selection-start-line="160" selection-start-column="58" selection-end-line="160" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1488136566836" expanded="true" signature="4547:5640" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="344" column="4" selection-start-line="344" selection-start-column="4" selection-end-line="344" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!block;n#drawPlayer#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#1;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webLogic/controllers/GameAreaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="20" />
+        <state relative-caret-position="357">
+          <caret line="58" column="50" selection-start-line="58" selection-start-column="50" selection-end-line="58" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webLogic/Json2Object/ActionConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/registration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="351" column="26" selection-start-line="351" selection-start-column="26" selection-end-line="351" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!block;n#drawPlayer#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
