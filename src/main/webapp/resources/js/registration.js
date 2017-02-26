@@ -25,7 +25,7 @@ $(document).ready(function () {
             user_data.avatarID = +avatar_id;
             localStorage.setItem("user", JSON.stringify(user_data));
             $.ajax({
-                url: '/TP-dao/registration',
+                url: '/TP-1.0-SNAPSHOT/registration',
                 type: 'POST',
                 async: false,
                 dataType: 'json',
@@ -38,7 +38,7 @@ $(document).ready(function () {
                         $("#login-already-exist-alert").addClass("hidden");
                         $("#login-invalid-alert").addClass("hidden");
                         setTimeout(function () {
-                            window.location = "/TP-dao/resources/rooms.html";
+                            window.location = "/TP-1.0-SNAPSHOT/resources/rooms.html";
                         }, 2000);
                     } else {
                         $("#login-already-exist-alert").removeClass("hidden");
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
 
 
-//            $.post('/TP-dao/registration', JSON.stringify(user_data), function (data) {
+//            $.post('/TP-1.0-SNAPSHOT/registration', JSON.stringify(user_data), function (data) {
 //                if (data.status === "SUCCESS") {
 //                    //редирект на страницу комнат
 //                    $("#login-success-alert").removeClass("hidden");

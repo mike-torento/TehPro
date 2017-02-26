@@ -97,7 +97,7 @@ function initRoomCreationForm() {
         //console.log(CREATED_ROOM);
         //TODO отправить на сервер
         $.ajax({
-            url: '/TP-dao/createroom',
+            url: '/TP-1.0-SNAPSHOT/createroom',
             type: 'POST',
             async: false,
             dataType: 'json',
@@ -121,7 +121,7 @@ function loadRooms() {
     //тут загружаем список комнат
     var user1 = JSON.stringify(localStorage.getItem("user"));
     $.ajax({
-        url: '/TP-dao/getrooms',
+        url: '/TP-1.0-SNAPSHOT/getrooms',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -168,7 +168,7 @@ function initJoinToRoomButtons() {
         var ROOM_ID=roomId;
         $("#start-btn").click(function(){
             $.ajax({
-                url: '/TP-dao/startgame',
+                url: '/TP-1.0-SNAPSHOT/startgame',
                 type: 'POST',
                 async: false,
                 dataType: 'json',
@@ -193,7 +193,7 @@ var ROOM_ID;
 function getRoomById(id) {
     var room;
     $.ajax({
-        url: '/TP-dao/updateroom',
+        url: '/TP-1.0-SNAPSHOT/updateroom',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -226,7 +226,7 @@ function getRoomById(id) {
                 }
                 if(selectedRoom.state==="ACTIVE"){ //когда игра началась
                     localStorage.setItem("session_id", id);
-                    window.location="/TP-dao/resources/game.html"
+                    window.location="/TP-1.0-SNAPSHOT/resources/game.html"
                 }
             }
             roomParams += '</ul>';
@@ -239,7 +239,7 @@ function getRoomById(id) {
                 console.log(selectedRoom);
 
                 $.ajax({
-                    url: '/TP-dao/jointoroom',
+                    url: '/TP-1.0-SNAPSHOT/jointoroom',
                     type: 'POST',
                     async: false,
                     dataType: 'json',
@@ -276,7 +276,7 @@ function   validatePermissions(){
     if(localStorage.user ===undefined){
         $("body").text("Доступ запрещен");
         setTimeout(function(){
-            window.location="/TP-dao/resources/index.html";
+            window.location="/TP-1.0-SNAPSHOT/resources/index.html";
         }, 3000);
     }
 }

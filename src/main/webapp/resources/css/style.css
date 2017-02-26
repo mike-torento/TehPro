@@ -307,16 +307,18 @@ ul.room-parameters>li {
     height: 100%;
 }
 
-.player-parameters>.left-col {
+.left-col {
     width: 45%;
     float: left;
     margin-left: 3%;
+    height: 100%;
 }
 
-.player-parameters>.right-col {
+.right-col {
     width: 45%;
     float: right;
     margin-right: 3%;
+    heigh:100%;
 }
 
 #actions {
