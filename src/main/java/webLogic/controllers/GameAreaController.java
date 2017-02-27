@@ -30,11 +30,13 @@ public class GameAreaController {
     private List<RequestGameArea> players_states = new ArrayList<RequestGameArea>();
     private List<Actions> actions;
     private int count;
+    private String check = ActionConstant.CHECK_STATUS_WAITING;
+    private Player winner;
 
     @RequestMapping(value = "/collect", consumes = MediaType.APPLICATION_JSON_VALUE)
     public
     @ResponseBody
-    void collect(@RequestBody final RequestGameArea rga) {
+    void collect(@RequestBody RequestGameArea rga) {
         count = RoomsStorage.getInstance().getRoomForID(rga.getRoom_id()).getNumberOfPlayers();
         players_states.add(rga);
         if (players_states.size() == count) {
@@ -59,17 +61,37 @@ public class GameAreaController {
             handler(actions,rga.getRoom_id());
             actions.clear();
             players_states.clear();
+            count = 0;
         }
     }
-    @RequestMapping(value = "/nextround",produces = MediaType.APPLICATION_JSON_VALUE)
+   // @RequestMapping(value = "/nextround",produces = MediaType.APPLICATION_JSON_VALUE)
     public
-    @ResponseBody
-    GameSession handler(List<Actions> actions, long room_id){
+   // @ResponseBody
+    void handler(List<Actions> actions, long room_id){
+        boolean flag;
         GameSession game = RoomsStorage.getInstance().getRoomForID(room_id);
         if (!actions.isEmpty()){
-            //game.nextRound(actions);
+            if (RoomsStorage.getInstance().getRoomForID(room_id).nextStep(actions)){
+                check = ActionConstant.CHECK_STATUS_READY;
+            }
+            else {
+                winner = RoomsStorage.getInstance().getRoomForID(room_id).endGame();
+                check = ActionConstant.ROOM_STATUS_FINISHED;
+            }
         }
-        return game;
+
+    }
+
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
+    public String getCheck(){
+        return check;
+    }
+
+    @RequestMapping(value = "/getwinner", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public
+    @ResponseBody
+    Player getWinner(){
+        return winner;
     }
 
 //    @RequestMapping(value = "/nextround", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

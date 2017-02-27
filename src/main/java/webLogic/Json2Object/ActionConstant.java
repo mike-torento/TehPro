@@ -22,6 +22,9 @@ public class ActionConstant {
     public static final String GAME_AREA_UPDATE = "UPDATE";
     public static final String GAME_AREA_BID = "BID";
 
+    public static final String CHECK_STATUS_READY = "READY";
+    public static final String CHECK_STATUS_WAITING = "WAITING";
+
     public static final String PLAYER_STATUS_ACTIVE = "ACTIVE";
     public static final String PLAYER_STATUS_PASSIVE = "PASSIVE";
 
