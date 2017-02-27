@@ -122,7 +122,7 @@ function initMyResources(){
     );
 
 
-    for(var i=0;i<PLAYER.numberOfReadyUniversalFactories;i++){
+    for(var j=0;j<PLAYER.numberOfReadyUniversalFactories;j++){
         $('#fabrics').append('<div class="fabric fabric-auto"">ФА </div>');
     }
 
