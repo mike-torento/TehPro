@@ -303,7 +303,7 @@ function initLeftSidePanelActions() {
 
     $('#developers-button-sb').click(function() {
         //тут опр контент для конкретной кнопки
-        var content = "тут будут информация о разработчиках";
+        var content = "Разработчики: <br> Богомолов Михаил <br> Пимушкин Дмитрий </br> Лыткин Дмитрий";
         toggleLeftSidePanel(content);
     });
 
