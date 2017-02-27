@@ -119,8 +119,7 @@ public class BankController {
         }
 
     }
-  
-    
+
     //списываем налоги
     public void writeOffMonthlyOutgoings() {
         for (int i = 0; i < playersList.size(); i++) {
@@ -141,11 +140,11 @@ public class BankController {
                 b++;
             }
         }
-        if( b == playersList.size()){
+        if (b == playersList.size()) {
             return true;
         }
-        return  false;
-        
+        return false;
+
     }
 
     //устанавливаем количество и цены на ресурсы
@@ -237,6 +236,7 @@ public class BankController {
         for (Player player : playersList) {
             if (player.getTheRequiredPriceOfESM() == findMaxPriceForESM()) {
                 if (bank.getCountESM() >= player.getTheRequiredNumberOfESM()) {
+                    player.setMoney(player.getMoney() - player.getTheRequiredNumberOfESM() * player.getTheRequiredPriceOfESM());
                     bank.setCountESM(bank.getCountEGP() - player.getTheRequiredNumberOfESM());
                     player.setNumberOfESM(player.getNumberOfESM() + player.getTheRequiredNumberOfESM());
                     player.setTheRequiredNumberOfESM(0);
@@ -248,6 +248,7 @@ public class BankController {
             for (Player player : playersList) {
                 if (player.getTheRequiredPriceOfESM() == findMaxPriceForESM()) {
                     player.setNumberOfESM(player.getNumberOfESM() + bank.getCountESM());
+                    player.setMoney(player.getMoney() - bank.getCountESM() * player.getTheRequiredPriceOfESM());
                     bank.setCountESM(0);
                     player.setTheRequiredNumberOfESM(0);
                     player.setTheRequiredPriceOfESM(-1);
@@ -264,10 +265,9 @@ public class BankController {
                 if (bank.getCountEGP() >= player.getSellNumberOfEGP()) {
                     bank.setCountEGP(bank.getCountEGP() - player.getSellNumberOfEGP());
                     player.setMoney(player.getMoney() + player.getSellNumberOfEGP() * player.getSellPriceOfEGP());
-                    player.setNumberOfEGP(player.getNumberOfEGP()- player.getSellNumberOfEGP());
+                    player.setNumberOfEGP(player.getNumberOfEGP() - player.getSellNumberOfEGP());
                     player.setSellNumberOfEGP(0);
                     player.setSellPriceOfEGP(Integer.MAX_VALUE);
-                    
 
                 }
             }
@@ -277,11 +277,11 @@ public class BankController {
             for (Player player : playersList) {
                 if (player.getSellPriceOfEGP() == findMinPriceForEGP()) {
                     player.setMoney(player.getMoney() + bank.getCountEGP() * player.getSellPriceOfEGP());
-                    player.setNumberOfEGP(player.getNumberOfEGP()- bank.getCountEGP());
+                    player.setNumberOfEGP(player.getNumberOfEGP() - bank.getCountEGP());
                     bank.setCountEGP(0);
                     player.setSellNumberOfEGP(0);
                     player.setSellPriceOfEGP(Integer.MAX_VALUE);
-                    
+
                 }
             }
         }
@@ -293,7 +293,7 @@ public class BankController {
         for (Player player : playersList) {
             if (player.getUser().getLogin().equals(user.getLogin())) {
                 player.addLoan(player.getNumberOfReadyStandartFactories() * 5000 + player.getNumberOfReadyUniversalFactories() * 10000);
-                player.setMoney(player.getMoney() + player.getNumberOfReadyStandartFactories() * 5000 + player.getNumberOfReadyUniversalFactories() * 10000 );
+                player.setMoney(player.getMoney() + player.getNumberOfReadyStandartFactories() * 5000 + player.getNumberOfReadyUniversalFactories() * 10000);
             }
         }
     }
@@ -304,20 +304,35 @@ public class BankController {
             if (player.getLoan().size() > 0) {
                 player.setMoney(player.getMoney() - (int) Math.round(player.getSumLoans() * 0.01));
                 for (Player.Loan loan : player.getLoan()) {
-                    if (loan.getTheEndOfLoan() == 0){
+                    if (loan.getTheEndOfLoan() == 0) {
                         player.setMoney(player.getMoney() - loan.getLoan());
                         loan.setTheEndOfLoan(-1);
                     }
                     if (loan.getTheEndOfLoan() > 0) {
                         loan.setTheEndOfLoan(loan.getTheEndOfLoan() - 1);
                     }
-                    
+
                 }
             }
 
         }
     }
-    
-    
 
+    public void buildStandartFactories(User user, int count) {
+        for (Player player : playersList) {
+            if (player.getUser().getLogin().equals(user.getLogin())) {
+                player.setMoney(player.getMoney() - count * 5000);
+                player.setNumberOfStandartFactories(player.getNumberOfStandartFactories()+ count);
+            }
+        }
+    }
+
+    public void upgradeStandartFactories(User user, int count) {
+        for (Player player : playersList) {
+            if (player.getUser().getLogin().equals(user.getLogin())) {
+                player.setMoney(player.getMoney() - count * 7000);
+                player.setNumberOfUniversalFactories(player.getNumberOfUniversalFactories() + count);
+            }
+        }
+    }
 }
