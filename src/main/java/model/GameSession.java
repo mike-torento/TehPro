@@ -92,7 +92,7 @@ public class GameSession {
     public void setBankController(BankController bankController) {
         this.bankController = bankController;
     }
- 
+
     public String getName() {
         return name;
     }
@@ -126,17 +126,20 @@ public class GameSession {
             if (bankController.checkBankrupts()) {
                 return false;
             }
-            bankController.writeOffMonthlyOutgoings();
+           // bankController.writeOffMonthlyOutgoings();
             bankController.setCurrentLevel();
-            bankController.setPriseAndCountResourses();
             for (Actions action : actions) {
                 for (Player player : bankController.getPlayersList()) {
                     if (player.getUser().getLogin().equals(action.getLogin())) {
+
                         bankController.setTheRequiredNumberAndPriceOfEsmForPlayer(player.getUser(), action.getEsm_count(), action.getEsm_cost());
 
                         bankController.setPriceAndNumberOfEGP(player.getUser(), action.getEgp_count(), action.getEgp_cost());
+
                         for (Map.Entry<String, Integer> a : action.getRewrite().entrySet()) {
-                            bankController.recycleESM(player.getUser(), a.getValue(), a.getKey());
+                            if (a.getValue() > 0) {
+                                bankController.recycleESM(player.getUser(), a.getValue(), a.getKey());
+                            }
                         }
 
                     }
@@ -145,6 +148,10 @@ public class GameSession {
             bankController.processRequestForPurchaseEGP();
             bankController.processRequestsForSaleESM();
             bankController.payInterestOnTheLoan();
+            if (bankController.checkBankrupts()) {
+                return false;
+            }
+            bankController.setPriseAndCountResourses();
         } else {
             return false;
         }

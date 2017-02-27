@@ -6,7 +6,6 @@ import java.util.Random;
 import model.Bank;
 import model.Player;
 import model.User;
-import org.apache.taglibs.standard.tei.ForEachTEI;
 
 public class BankController {
 
@@ -174,14 +173,17 @@ public class BankController {
                     if (TypeOfFactory.equals("standart")) {
                         player.setNumberOfESM(player.getNumberOfESM() - numberOfESM);
                         player.setMoney(player.getMoney() - numberOfESM * 2000);
+                        player.setNumberOfEGP(player.getNumberOfEGP() + numberOfESM);
                     }
                     if (TypeOfFactory.equals("universal")) {
                         if (numberOfESM % 2 == 0) {
                             player.setNumberOfESM(player.getNumberOfESM() - numberOfESM);
                             player.setMoney(player.getMoney() - numberOfESM * 1500);
+                            player.setNumberOfEGP(player.getNumberOfEGP() + numberOfESM);
                         } else {
                             player.setNumberOfESM(player.getNumberOfESM() - numberOfESM);
                             player.setMoney(player.getMoney() - (numberOfESM - 1) * 1500 - 2000);
+                            player.setNumberOfEGP(player.getNumberOfEGP() + numberOfESM);
                         }
                     }
                 }
@@ -234,7 +236,7 @@ public class BankController {
     public void processRequestsForSaleESM() {
         for (Player player : playersList) {
             if (player.getTheRequiredPriceOfESM() == findMaxPriceForESM()) {
-                if (bank.getCountESM() > player.getTheRequiredNumberOfESM()) {
+                if (bank.getCountESM() >= player.getTheRequiredNumberOfESM()) {
                     bank.setCountESM(bank.getCountEGP() - player.getTheRequiredNumberOfESM());
                     player.setNumberOfESM(player.getNumberOfESM() + player.getTheRequiredNumberOfESM());
                     player.setTheRequiredNumberOfESM(0);
@@ -259,11 +261,13 @@ public class BankController {
     public void processRequestForPurchaseEGP() {
         for (Player player : playersList) {
             if (player.getSellPriceOfEGP() == findMinPriceForEGP()) {
-                if (bank.getCountEGP() > player.getSellNumberOfEGP()) {
+                if (bank.getCountEGP() >= player.getSellNumberOfEGP()) {
                     bank.setCountEGP(bank.getCountEGP() - player.getSellNumberOfEGP());
                     player.setMoney(player.getMoney() + player.getSellNumberOfEGP() * player.getSellPriceOfEGP());
+                    player.setNumberOfEGP(player.getNumberOfEGP()- player.getSellNumberOfEGP());
                     player.setSellNumberOfEGP(0);
                     player.setSellPriceOfEGP(Integer.MAX_VALUE);
+                    
 
                 }
             }
@@ -273,9 +277,11 @@ public class BankController {
             for (Player player : playersList) {
                 if (player.getSellPriceOfEGP() == findMinPriceForEGP()) {
                     player.setMoney(player.getMoney() + bank.getCountEGP() * player.getSellPriceOfEGP());
+                    player.setNumberOfEGP(player.getNumberOfEGP()- bank.getCountEGP());
                     bank.setCountEGP(0);
                     player.setSellNumberOfEGP(0);
                     player.setSellPriceOfEGP(Integer.MAX_VALUE);
+                    
                 }
             }
         }

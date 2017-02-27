@@ -25,7 +25,7 @@ $(document).ready(function () {
             user_data.avatarID = +avatar_id;
             localStorage.setItem("user", JSON.stringify(user_data));
             $.ajax({
-                url: '/TP-1.0-SNAPSHOT/registration',
+                url: '/TP/registration',
                 type: 'POST',
                 async: false,
                 dataType: 'json',
@@ -38,7 +38,7 @@ $(document).ready(function () {
                         $("#login-already-exist-alert").addClass("hidden");
                         $("#login-invalid-alert").addClass("hidden");
                         setTimeout(function () {
-                            window.location = "/TP-1.0-SNAPSHOT/resources/rooms.html";
+                            window.location = "/TP/resources/rooms.html";
                         }, 2000);
                     } else {
                         $("#login-already-exist-alert").removeClass("hidden");

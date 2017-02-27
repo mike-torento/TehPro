@@ -316,7 +316,7 @@ function gameLifeCycle(seconds){
 
 function initStartParams() {
     $.ajax({
-        url: '/TP-1.0-SNAPSHOT/nextround',
+        url: '/TP/nextround',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -403,7 +403,7 @@ $('#end-round-btn').click(function(){
         cost:0
     };
     $.ajax({
-        url: '/TP-1.0-SNAPSHOT/collect',
+        url: '/TP/collect',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -417,7 +417,7 @@ $('#end-round-btn').click(function(){
 
     var statusIntervalID = setInterval(function(){
         $.ajax({
-            url: '/TP-1.0-SNAPSHOT/check',
+            url: '/TP/check',
             type: 'POST',
             async: false,
             dataType: 'json',
