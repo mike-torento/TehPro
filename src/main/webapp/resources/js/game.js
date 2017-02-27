@@ -60,10 +60,10 @@ function disableButtons(){
 }
 
 function initMyResources(){
-        // $('#simple-fabric>.fabric-counter').text(PLAYER.numberOfReadyStandartFactories+'/'+PLAYER.numberOfStandartFactories);
-        // $('#auto-fabric>.fabric-counter').text(PLAYER.numberOfReadyUniversalFactories+'/'+PLAYER.numberOfUniversalFactories);
-        // $('#builded-fabric>.fabric-counter').text(PLAYER.numberOfStandartFactories-PLAYER.numberOfReadyStandartFactories);
-        // $('#upgraded-fabric>.fabric-counter').text(PLAYER.numberOfUniversalFactories-PLAYER.numberOfReadyUniversalFactories);
+    // $('#simple-fabric>.fabric-counter').text(PLAYER.numberOfReadyStandartFactories+'/'+PLAYER.numberOfStandartFactories);
+    // $('#auto-fabric>.fabric-counter').text(PLAYER.numberOfReadyUniversalFactories+'/'+PLAYER.numberOfUniversalFactories);
+    // $('#builded-fabric>.fabric-counter').text(PLAYER.numberOfStandartFactories-PLAYER.numberOfReadyStandartFactories);
+    // $('#upgraded-fabric>.fabric-counter').text(PLAYER.numberOfUniversalFactories-PLAYER.numberOfReadyUniversalFactories);
     $('#fabrics').empty();
     $('#fabrics').append('<div id="new-fabric" class="fabric" >+</div>');
     $('#new-fabric').click(function(){
@@ -71,7 +71,7 @@ function initMyResources(){
         $(this).addClass('fabric-ok');
     });
     for(var i=0;i<PLAYER.numberOfReadyStandartFactories;i++){
-        
+
         $('#fabrics').append('<div class="fabric fabric-simple">Ф </div>');
     }
 
@@ -79,7 +79,7 @@ function initMyResources(){
         function (event) {
             $('#fabric-selected').attr('id', '');
             $('#fabric-popup').remove();
-            
+
             if(!$(this).hasClass('fabric-ok')) {
                 var popup = $('<div id="fabric-popup">' +
                     '<div id="ref-esm" class="btn btn-success">Переработаь 1 ЕСМ</div>' +
@@ -107,7 +107,7 @@ function initMyResources(){
                     $('#fabric-selected').addClass('fabric-ok');
                     $('#fabric-selected').css({'background-color':'#999999','z-index':'-9999'});
                     $('#fabric-selected').attr('id', '');
-                  
+
                 });
                 $('#exit').click(function(){
                     $('#fabric-popup').remove();
@@ -116,7 +116,7 @@ function initMyResources(){
             }
         }
     );
-    
+
 
     for(var i=0;i<PLAYER.numberOfReadyUniversalFactories;i++){
         $('#fabrics').append('<div class="fabric fabric-auto"">ФА </div>');
@@ -163,14 +163,14 @@ function initMyResources(){
             }
         }
     );
-    
-    //TODO Дописать строящиеся и улучшающиеся
-    
-        $('#money-counter').text('$'+PLAYER.money);
-        $('#egp-counter').text('ЕГП: '+PLAYER.numberOfEGP);
-        $('#esm-counter').text('ECМ: '+PLAYER.numberOfESM);
 
-        $('#round>div').text(ROUNDS);
+    //TODO Дописать строящиеся и улучшающиеся
+
+    $('#money-counter').text('$'+PLAYER.money);
+    $('#egp-counter').text('ЕГП: '+PLAYER.numberOfEGP);
+    $('#esm-counter').text('ECМ: '+PLAYER.numberOfESM);
+
+    $('#round>div').text(ROUNDS);
 }
 
 function drawPlayer(player){
@@ -229,7 +229,7 @@ function initSliders() {
             $('#egp-count').text(ui.values[0]);
             rounds = ui.values[0];
             egp_selected.count=ui.values[0];
-            
+
             if(egp_selected.count&&egp_selected.cost){
                 $('#egp-reset').removeClass('disabled');
                 $('#egp-accept').removeClass('disabled');
@@ -295,20 +295,20 @@ function gameLifeCycle(seconds){
 
     intervalID =  setInterval(function(){
         $("#time>div").text(currentTime);
-                currentTime-=1;
-                if(currentTime<16){
-                    if(currentTime%2==0){
-                        $('#time').css({'background-color':'red'});
-                    }else{
-                        $('#time').css({'background-color':'#5597d0'});
-                    }
-                }
+        currentTime-=1;
+        if(currentTime<16){
+            if(currentTime%2==0){
+                $('#time').css({'background-color':'red'});
+            }else{
+                $('#time').css({'background-color':'#5597d0'});
+            }
+        }
         if(currentTime==0){
             $("#time>div").text(currentTime);
             clearInterval(intervalID);
         }
 
-            }, 1000);
+    }, 1000);
 
 
 
@@ -316,7 +316,7 @@ function gameLifeCycle(seconds){
 
 function initStartParams() {
     $.ajax({
-        url: '/TP-1.0-SNAPSHOT/startgame',
+        url: '/TP-1.0-SNAPSHOT/nextround',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -363,7 +363,7 @@ function drawBank(bankController){
     $('#egp-bank-count').empty();
     $('#egp-bank-price').empty();
     $('#bank-level').empty();
-    
+
     $('#esm-bank-count').append('Покупка ЕСМ:'+ bank.minPriceForESM);
     $('#esm-bank-price').append('Количество ЕСМ:'+ bank.countESM);
     $('#egp-bank-count').append('Покупка ЕГП:'+ bank.maxPriceForEGP);
@@ -389,7 +389,7 @@ $('#end-round-btn').click(function(){
             auto_fabric: esm_refurbished_auto
         }
     };
-    
+
     fabric_build=0;
     esm_refurbished=0;
     esm_refurbished_auto=0;
@@ -425,7 +425,7 @@ $('#end-round-btn').click(function(){
             contentType: "application/json",
             success: function (data) {
                 var check = data.check;
-                
+
                 if(check==="READY"){
                     clearInterval(statusIntervalID);
                     //TODO startgame
