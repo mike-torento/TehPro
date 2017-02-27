@@ -141,6 +141,14 @@ public class GameSession {
                                 bankController.recycleESM(player.getUser(), a.getValue(), a.getKey());
                             }
                         }
+                        
+                        if (action.getBuild()>0){
+                            bankController.buildStandartFactories(player.getUser(), action.getBuild());
+                        }
+                        
+                        if (action.getUpgrade()>0){
+                            bankController.upgradeStandartFactories(player.getUser(), action.getUpgrade());
+                        }
 
                     }
                 }

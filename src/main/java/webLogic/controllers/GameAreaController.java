@@ -95,7 +95,6 @@ public class GameAreaController {
     public
     @ResponseBody
     Player getWinner(){
-        check.setCheck(ActionConstant.CHECK_STATUS_WAITING);
         return winner;
     }
 
