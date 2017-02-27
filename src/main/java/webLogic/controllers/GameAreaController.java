@@ -15,6 +15,7 @@ import webLogic.Json2Object.ActionConstant;
 import webLogic.Json2Object.RoomsStorage;
 import webLogic.Json2Object.request.RequestGameArea;
 import webLogic.Json2Object.response.ResponseGameArea;
+import webLogic.Json2Object.response.ResponseGameRoom;
 import webLogic.Json2Object.simpleObjects.action.Actions;
 import webLogic.Json2Object.simpleObjects.states.Check;
 import webLogic.Json2Object.simpleObjects.states.EGP;
@@ -96,6 +97,20 @@ public class GameAreaController {
     Player getWinner(){
         check.setCheck(ActionConstant.CHECK_STATUS_WAITING);
         return winner;
+    }
+
+    @RequestMapping(value = "/nextround",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public
+    @ResponseBody
+    ResponseGameRoom next(@RequestBody long room_id){
+        for (GameSession cur: RoomsStorage.getInstance().getRoms()){
+            if (cur.getSessionID()==room_id){
+                List<GameSession> action_data = new ArrayList<GameSession>();
+                action_data.add(cur);
+                return new ResponseGameRoom(ActionConstant.STATUS_SUCCESS,ActionConstant.ROOM_STATUS_ACTIVE,action_data,null,null);
+            }
+        }
+        return null; // прописать ошибку
     }
 
 //    @RequestMapping(value = "/nextround", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
