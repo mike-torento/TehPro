@@ -16,6 +16,7 @@ import webLogic.Json2Object.RoomsStorage;
 import webLogic.Json2Object.request.RequestGameArea;
 import webLogic.Json2Object.response.ResponseGameArea;
 import webLogic.Json2Object.simpleObjects.action.Actions;
+import webLogic.Json2Object.simpleObjects.states.Check;
 import webLogic.Json2Object.simpleObjects.states.EGP;
 import webLogic.Json2Object.simpleObjects.states.ESM;
 import webLogic.Json2Object.simpleObjects.states.Process;
@@ -30,7 +31,7 @@ public class GameAreaController {
     private List<RequestGameArea> players_states = new ArrayList<RequestGameArea>();
     private List<Actions> actions;
     private int count;
-    private String check = ActionConstant.CHECK_STATUS_WAITING;
+    private Check check = new Check(ActionConstant.CHECK_STATUS_WAITING);
     private Player winner;
 
     @RequestMapping(value = "/collect", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -72,18 +73,20 @@ public class GameAreaController {
         GameSession game = RoomsStorage.getInstance().getRoomForID(room_id);
         if (!actions.isEmpty()){
             if (RoomsStorage.getInstance().getRoomForID(room_id).nextStep(actions)){
-                check = ActionConstant.CHECK_STATUS_READY;
+                check.setCheck(ActionConstant.CHECK_STATUS_READY);
             }
             else {
                 winner = RoomsStorage.getInstance().getRoomForID(room_id).endGame();
-                check = ActionConstant.ROOM_STATUS_FINISHED;
+                check.setCheck(ActionConstant.ROOM_STATUS_FINISHED);
             }
         }
 
     }
 
-    @RequestMapping(value = "/check", method = RequestMethod.GET)
-    public String getCheck(){
+    @RequestMapping(value = "/check", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public
+    @ResponseBody
+    Check getCheck(){
         return check;
     }
 
@@ -91,6 +94,7 @@ public class GameAreaController {
     public
     @ResponseBody
     Player getWinner(){
+        check.setCheck(ActionConstant.CHECK_STATUS_WAITING);
         return winner;
     }
 
