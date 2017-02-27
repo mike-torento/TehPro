@@ -40,7 +40,9 @@ public class GameAreaController {
     @ResponseBody
     void collect(@RequestBody RequestGameArea rga) {
         count = RoomsStorage.getInstance().getRoomForID(rga.getRoom_id()).getNumberOfPlayers();
-        players_states.add(rga);
+        if (!players_states.contains(rga)) {
+            players_states.add(rga);
+        }
         if (players_states.size() == count) {
             actions = new ArrayList<Actions>();
             for (RequestGameArea cur : players_states) {
