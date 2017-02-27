@@ -57,6 +57,7 @@ function disableButtons(){
     $('#esm-reset').attr('disabled', false);
     $("#egp-cost-slider").attr('disabled', false);
     $("#esm-cost-slider").attr('disabled', false);
+   
 }
 
 function initMyResources(){
@@ -67,7 +68,10 @@ function initMyResources(){
     $('#fabrics').empty();
     $('#fabrics').append('<div id="new-fabric" class="fabric" >+</div>');
     $('#new-fabric').click(function(){
-        fabric_build++;
+        if(fabric_build==0){
+            fabric_build++; 
+        }
+
         $(this).addClass('fabric-ok');
     });
     for(var i=0;i<PLAYER.numberOfReadyStandartFactories;i++){
@@ -316,20 +320,39 @@ function gameLifeCycle(seconds){
 
 function initStartParams() {
     $.ajax({
-        url: '/TP/nextround',
+        url: '/TP-1.0-SNAPSHOT/nextround',
         type: 'POST',
         async: false,
         dataType: 'json',
         data: localStorage.getItem("session_id"),
         contentType: "application/json",
         success: function (data) {
+            var bankrotsFlag=false;
             bankController = data.action_data[0].bankController;
             players = bankController.playersList;
             for (var i = 0; i < players.length; i++) {
                 if (players[i].user.login === JSON.parse(localStorage.getItem("user")).login) {
                     PLAYER = players[i];
                     break;
+                }else{
+                    if(players[i].bankrupt){
+                        bankrotsFlag=true;
+                    }
                 }
+            }
+
+            if(bankrotsFlag){
+                alert('Вы Победили! Вы будете перенаправлены на страницу комнат');
+                setTimeout(function(){
+                    window.location = "/TP-1.0-SNAPSHOT/resources/rooms.html";
+                },2000);
+            }
+
+            if(PLAYER.bankrupt|| PLAYER.money<=0){
+                alert('Вы Банкрот! Вы будете перенаправлены на страницу комнат');
+                setTimeout(function(){
+                    window.location = "/TP-1.0-SNAPSHOT/resources/rooms.html";
+                },2000);
             }
 
             MAX_ESM = bankController.bank.countESM;
@@ -344,6 +367,7 @@ function initStartParams() {
             ROUND_TIME = data.action_data[0].timeOfSteps;
             ROUNDS = data.action_data[0].numberOfSteps;
 
+            $('#end-round-btn').removeClass('disabled');
             $('#players').empty();
             for (var i = 0; i < players.length; i++) {
                 drawPlayer(players[i]);
@@ -373,6 +397,7 @@ function drawBank(bankController){
 }
 
 $('#end-round-btn').click(function(){
+    $(this).addClass('disabled');
     clearInterval(intervalID);
     $("#time>div").text(0);
     var request = {};
@@ -403,7 +428,7 @@ $('#end-round-btn').click(function(){
         cost:0
     };
     $.ajax({
-        url: '/TP/collect',
+        url: '/TP-1.0-SNAPSHOT/collect',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -417,7 +442,7 @@ $('#end-round-btn').click(function(){
 
     var statusIntervalID = setInterval(function(){
         $.ajax({
-            url: '/TP/check',
+            url: '/TP-1.0-SNAPSHOT/check',
             type: 'POST',
             async: false,
             dataType: 'json',
@@ -436,6 +461,17 @@ $('#end-round-btn').click(function(){
                 } else if(check==="FINISHED"){
                     console.log("игра завершена");
                     clearInterval(statusIntervalID);
+                    $.ajax({
+                        url: '/TP-1.0-SNAPSHOT/getwinner',
+                        type: 'POST',
+                        async: false,
+                        dataType: 'json',
+                        data: "" ,
+                        contentType: "application/json",
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
                 }
             }
         });

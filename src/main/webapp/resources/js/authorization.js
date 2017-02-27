@@ -21,7 +21,7 @@ $(document).ready(function(){
       // });
 
       $.ajax({
-        url: '/TP/authorization',
+        url: '/TP-1.0-SNAPSHOT/authorization',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -37,7 +37,7 @@ $(document).ready(function(){
             $("#login-undef-alert").addClass("hidden");
             $("#login-invalid-alert").addClass("hidden");
             setTimeout(function(){
-              window.location="/TP/resources/rooms.html";
+              window.location="/TP-1.0-SNAPSHOT/resources/rooms.html";
             }, 1000);
 
           }
