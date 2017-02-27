@@ -1,4 +1,5 @@
 var REQ={};
+var intervalID;
 var players;
 var PLAYER;
 var bankController;
@@ -63,8 +64,14 @@ function initMyResources(){
         // $('#auto-fabric>.fabric-counter').text(PLAYER.numberOfReadyUniversalFactories+'/'+PLAYER.numberOfUniversalFactories);
         // $('#builded-fabric>.fabric-counter').text(PLAYER.numberOfStandartFactories-PLAYER.numberOfReadyStandartFactories);
         // $('#upgraded-fabric>.fabric-counter').text(PLAYER.numberOfUniversalFactories-PLAYER.numberOfReadyUniversalFactories);
-        
+    $('#fabrics').empty();
+    $('#fabrics').append('<div id="new-fabric" class="fabric" >+</div>');
+    $('#new-fabric').click(function(){
+        fabric_build++;
+        $(this).addClass('fabric-ok');
+    });
     for(var i=0;i<PLAYER.numberOfReadyStandartFactories;i++){
+        
         $('#fabrics').append('<div class="fabric fabric-simple">Ф </div>');
     }
 
@@ -111,8 +118,7 @@ function initMyResources(){
     );
     
 
-    // for(var i=0;i<PLAYER.numberOfReadyUniversalFactories;i++){
-    for(var i=0;i<2;i++){
+    for(var i=0;i<PLAYER.numberOfReadyUniversalFactories;i++){
         $('#fabrics').append('<div class="fabric fabric-auto"">ФА </div>');
     }
 
@@ -287,7 +293,7 @@ function gameLifeCycle(seconds){
     var currentTime = seconds;
 
 
-    var intervalID =  setInterval(function(){
+    intervalID =  setInterval(function(){
         $("#time>div").text(currentTime);
                 currentTime-=1;
                 if(currentTime<16){
@@ -310,7 +316,7 @@ function gameLifeCycle(seconds){
 
 function initStartParams() {
     $.ajax({
-        url: '/TP/startgame',
+        url: '/TP-1.0-SNAPSHOT/startgame',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -338,6 +344,7 @@ function initStartParams() {
             ROUND_TIME = data.action_data[0].timeOfSteps;
             ROUNDS = data.action_data[0].numberOfSteps;
 
+            $('#players').empty();
             for (var i = 0; i < players.length; i++) {
                 drawPlayer(players[i]);
             }
@@ -350,6 +357,13 @@ function initStartParams() {
 
 function drawBank(bankController){
     var bank = bankController.bank;
+
+    $('#esm-bank-count').empty();
+    $('#esm-bank-price').empty();
+    $('#egp-bank-count').empty();
+    $('#egp-bank-price').empty();
+    $('#bank-level').empty();
+    
     $('#esm-bank-count').append('Покупка ЕСМ:'+ bank.minPriceForESM);
     $('#esm-bank-price').append('Количество ЕСМ:'+ bank.countESM);
     $('#egp-bank-count').append('Покупка ЕГП:'+ bank.maxPriceForEGP);
@@ -359,7 +373,8 @@ function drawBank(bankController){
 }
 
 $('#end-round-btn').click(function(){
-
+    clearInterval(intervalID);
+    $("#time>div").text(0);
     var request = {};
     request.room_id=localStorage.getItem("session_id");
     request.login=JSON.parse(localStorage.getItem("user")).login;
@@ -374,8 +389,21 @@ $('#end-round-btn').click(function(){
             auto_fabric: esm_refurbished_auto
         }
     };
+    
+    fabric_build=0;
+    esm_refurbished=0;
+    esm_refurbished_auto=0;
+    fabric_upgraded=0;
+    egp_selected={
+        count:0,
+        cost:0
+    };
+    esm_selected={
+        count:0,
+        cost:0
+    };
     $.ajax({
-        url: '/TP/collect',
+        url: '/TP-1.0-SNAPSHOT/collect',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -386,4 +414,30 @@ $('#end-round-btn').click(function(){
             console.log(data);
         }
     });
+
+    var statusIntervalID = setInterval(function(){
+        $.ajax({
+            url: '/TP-1.0-SNAPSHOT/check',
+            type: 'POST',
+            async: false,
+            dataType: 'json',
+            data: "data",
+            contentType: "application/json",
+            success: function (data) {
+                var check = data.check;
+                
+                if(check==="READY"){
+                    clearInterval(statusIntervalID);
+                    //TODO startgame
+                    initStartParams();
+                    initMyResources();
+                    disableButtons();
+                    gameLifeCycle(ROUND_TIME);
+                } else if(check==="FINISHED"){
+                    console.log("игра завершена");
+                    clearInterval(statusIntervalID);
+                }
+            }
+        });
+    },5000);
 });
