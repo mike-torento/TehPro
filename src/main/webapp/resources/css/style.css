@@ -538,3 +538,8 @@ ul.room-parameters>li {
     background-color: #999999 !important;
     z-index: -999;
 }
+
+#bank-parameters>div>div, #bank-level{
+    font-size: 15pt;
+    margin-left: 10%;
+}

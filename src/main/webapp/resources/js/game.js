@@ -21,16 +21,24 @@ var CURRENT_ROUND;
 var X;
 var Y;
 var egp_selected={
-
+    count:0,
+    cost:0
 };
 var esm_selected={
-
+    count:0,
+    cost:0
 };
 
+
+var fabric_build=0;
 var esm_refurbished=0;
 var esm_refurbished_auto=0;
 var fabric_upgraded=0;
 $(document).ready(function() {
+    $('#new-fabric').click(function(){
+        fabric_build++;
+        $(this).addClass('fabric-ok');
+    });
     validatePermissions();
     initStartParams();
     initMyResources();
@@ -40,11 +48,6 @@ $(document).ready(function() {
 
 });
 
-$(document).mousemove(function(e){
-     X = e.pageX; // положения по оси X
-     Y = e.pageY; // положения по оси Y
-    // console.log("X: " + X + " Y: " + Y); // вывод результата в консоль
-});
 
 function disableButtons(){
     $('#egp-accept').attr('disabled', false);
@@ -67,6 +70,7 @@ function initMyResources(){
 
     $('.fabric-simple').click(
         function (event) {
+            $('#fabric-selected').attr('id', '');
             $('#fabric-popup').remove();
             
             if(!$(this).hasClass('fabric-ok')) {
@@ -115,6 +119,7 @@ function initMyResources(){
     $('.fabric-auto').click(
         function (event) {
             $('#fabric-popup').remove();
+            $('#fabric-selected').attr('id', '');
 
             if(!$(this).hasClass('fabric-ok')) {
                 var popup = $('<div id="fabric-popup">' +
@@ -338,8 +343,19 @@ function initStartParams() {
             }
 
             initSliders();
+            drawBank(bankController);
         }
     });
+}
+
+function drawBank(bankController){
+    var bank = bankController.bank;
+    $('#esm-bank-count').append('Покупка ЕСМ:'+ bank.minPriceForESM);
+    $('#esm-bank-price').append('Количество ЕСМ:'+ bank.countESM);
+    $('#egp-bank-count').append('Покупка ЕГП:'+ bank.maxPriceForEGP);
+    $('#egp-bank-price').append('Количество ЕГП:'+ bank.countEGP);
+    var a = bank.currentlevel;
+    $('#bank-level').append('Текущий уровень: '+bank.currentlevel);
 }
 
 $('#end-round-btn').click(function(){
@@ -353,7 +369,7 @@ $('#end-round-btn').click(function(){
         credit:0,
         process:{
             upgrade_fabric: fabric_upgraded,
-            build_fabric: 0,
+            build_fabric: fabric_build,
             fabric: esm_refurbished,
             auto_fabric: esm_refurbished_auto
         }
