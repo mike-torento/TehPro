@@ -310,7 +310,7 @@ function gameLifeCycle(seconds){
 
 function initStartParams() {
     $.ajax({
-        url: '/TP-1.0-SNAPSHOT/startgame',
+        url: '/TP/startgame',
         type: 'POST',
         async: false,
         dataType: 'json',
@@ -375,7 +375,7 @@ $('#end-round-btn').click(function(){
         }
     };
     $.ajax({
-        url: '/TP-1.0-SNAPSHOT/collect',
+        url: '/TP/collect',
         type: 'POST',
         async: false,
         dataType: 'json',
